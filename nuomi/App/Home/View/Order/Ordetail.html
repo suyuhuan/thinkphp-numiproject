@@ -1,0 +1,65 @@
+<extend name="Public:ucore"/>
+<block name="user_main">
+  <div class="user_main fr">
+	<div class="user_main_cont">
+		<!--订单详情-->
+		<div class="user_detail">
+			<h3>
+			 <span>订单详情</span>
+			 <a class="fr" href="">返回订单列表</a>
+		    </h3>
+            <!--订单支付-->
+		    <div class="user_detai_pay">  	
+		    		<span>当前状态:</span>
+		    		<span class="pay">未支付</span>
+		    		<a class="btn fl" href="">付款</a>
+		    		<a class="del fr" href="del/id/{$orders.id}">删除订单</a>  
+		    		<div class="clear"></div>	
+		    </div>
+		    <!--订单信息-->
+		    <div class="user_detai_info">
+		    	<h4>订单信息</h4>
+		    	<ul>
+		    		<li class="fl">订单编号:{$orders.order_num}</li>
+		    		<li class="fl">下单时间:{$orders.order_time}</li>
+		    	</ul>
+		    	<div class="clear"></div>
+		    </div>
+		    <!--团购信息-->
+		    <div class="user_detai_group">
+		    	<h4>团购信息</h4>
+               <table cellpadding='0' cellspacing='0'>
+               	 <thead>
+               	 	<tr>
+               	 		<th>团购项目</th>
+               	 		<th>单元(元)</th>
+               	 		<th>数量</th>
+               	 		<th>小计</th>
+               	 	</tr>
+               	 </thead>
+               	 <tbody>
+
+               	 	<tr>
+               	 		<td><a href="">{$orders.name}</a></td>
+               	 		<td>￥{$orders.price}</td>
+               	 		<td>{$orders.number}</td>
+               	 		<td style=color:red>￥{$orders.sumprice}</td>
+               	 	</tr>
+               	 
+               	 	<tr>
+               	 		<td colspan='4' class='total'>
+                          
+               	 			实付金额
+               	 			<span>￥{$orders.sumprice}</span>
+               	 		</td>
+               	 	</tr>
+               	 </tbody>
+               </table>
+			
+		    </div>
+
+		</div>
+	</div>
+</div>
+</block>
+

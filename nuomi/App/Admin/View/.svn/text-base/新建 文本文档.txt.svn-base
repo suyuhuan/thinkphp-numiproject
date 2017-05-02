@@ -1,0 +1,43 @@
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable ui-resizable" style="position: absolute; height: auto; width: 300px; top: 135px; left: 482px; display: block;" tabindex="-1" role="dialog" aria-describedby="dialog-message" aria-labelledby="ui-id-27">
+<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+<span id="ui-id-27" class="ui-dialog-title">
+<div class="widget-header widget-header-small">
+<h4 class="smaller">
+<i class="icon-ok"></i>
+jQuery UI Dialog
+</h4>
+</div>
+</span>
+<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+<span class="ui-button-text">close</span>
+</button>
+</div>
+<div id="dialog-message" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 35px; max-height: none; height: auto;">
+<p> This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon. </p>
+<div class="hr hr-12 hr-double"></div>
+<p>
+Currently using
+<b>36% of your storage space</b>
+.
+</p>
+</div>
+<div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>
+<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+<div class="ui-dialog-buttonset">
+<button class="btn btn-xs ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false">
+<span class="ui-button-text">Cancel</span>
+</button>
+<button class="btn btn-primary btn-xs ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" role="button" aria-disabled="false">
+<span class="ui-button-text">OK</span>
+</button>
+</div>
+</div>
+</div>

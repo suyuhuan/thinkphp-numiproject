@@ -1,0 +1,145 @@
+<extend name="Public:ucore"/>
+<block name="user_main">
+  <div class="user_main fr">
+	<div class="user_main_head">
+		<ul>
+			<li class="clickz" id='0'>
+				全部
+			</li>
+			<li class="clickz" id='1'>
+			   待付款
+			</li>
+			<li class="clickz" id='2'>
+			   未使用
+			</li>
+			<li class="clickz" id='3'>
+				即将到期
+			</li>
+			<li class="clickz" id='4'>
+			    已使用 
+			</li>
+			<li class="clickz" id='5'>
+				 已过期 
+			</li>
+			<li class="clickz" id='6'>
+				 退款 
+			</li>
+		</ul>
+	</div>
+	<div class="user_main_cont">
+		<div class="user_order">
+			<table cellpadding='0' cellspacing='0'>
+				<thead>
+					<tr>
+						<th width="260">团购信息</th>
+					    <th width="70">单价</th>
+					    <th width="100">数量</th>
+					    <th width="120">实付金额</th>
+					    <th width="120">状态</th>
+					    <th>操作</th>
+					</tr>
+				</thead>
+		<foreach name="order" item="orders">
+				<tbody>
+					<tr>
+						<td >
+							<a href=""><img src="__PUBLIC__/{$orders.img}"/></a>
+							<span class="tit"><a href="__APP__/Details/index/id/{$orders.goods_id}">{$orders.name}</a></span>
+							<span>有效期至:2015-11-7</span>
+					    </td>
+					    <td>
+						    <span>￥{$orders.price}</span>
+					    </td>
+					    <td class="bor">
+						    <span>{$orders.number}</span>
+					    </td>
+					    <td>
+						    <span>￥{$orders.sumprice}</span>
+					    </td>
+					    <td>
+						   <span>
+						   <if condition="$orders.state == 1">未付款
+								<elseif condition="$orders.state == 2" />未使用
+									
+								<elseif condition="$orders.state == 3"/>即将到期
+								<elseif condition="$orders.state == 4"/>已使用
+								<else />已过期
+								</if>
+							</span>
+						  <span><a href="__CONTROLLER__/Ordetail/id/{$orders.id}">订单详情</a></span>
+					    </td>
+					    <td>
+							<span>
+								<if condition="$orders.state == 1">
+									<a  class="btn" href="__CONTROLLER__/pay/id/{$orders.id}">付款</a>
+								<elseif condition="$orders.state == 2" /><a class="btn" >预约电话</a>
+									
+								<elseif condition="$orders.state == 3"/><a class="btn" >预约电话</a>
+								<elseif condition="$orders.state == 4"/><a  class="btn" href="__APP__/comment/index/id/{$orders.id}">去评价</a>
+								<elseif condition="$orders.state == 5"/><a  class="btn" href="__APP__/comment/index/id/{$orders.id}">追评</a>
+								<else />已过期
+								</if>
+								<span>
+							<span><a href="__CONTROLLER__/del/id/{$orders.id}">删除订单</a></span>
+				    	</td>
+					</tr>	
+				</tbody>
+		</foreach>	
+				 <tr>	
+            		 <td colspan="13">{$page}</td>
+       	 		 </tr>
+		</table>
+		</div>
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		aaaaaaaaaaaa
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		ddddddddddd
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		eeeeeeeeeeeee
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		fffffffffffff
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		ggggggggggggggggggggg
+	</div>
+	<div class="user_main_cont" style="display:none;">
+		hhhhhhhhhhhhhhhhhhhh
+	</div>
+</div>
+</block>
+<block name="js">
+<script>
+		/*$(function(){
+		$(".user_main .user_main_head ul > li:first").addClass("active");
+		$(".user_main .user_main_cont").not(":first").hide();
+		$(".user_main .user_main_head ul>li").unbind("click").bind("click", function(){
+			$(this).siblings("li").removeClass("active").end().addClass("active");
+			var index = $(".user_main .user_main_head ul >li").index( $(this) );
+			$(".user_main .user_main_cont").eq(index).siblings(".user_main .user_main_cont").hide().end().fadeIn("slow");
+	   });
+	});	*/
+
+
+
+	/*大神*/
+	var statez 	
+
+  $('.clickz').click(function(){
+
+  	statez = $(this).attr("id");
+
+  	$(".user_main .user_main_head ul > li:first").addClass("active");
+	$(".user_main .user_main_cont").not(":first").hide();
+	$(this).siblings("li").removeClass("active").end().addClass("active");
+	
+    $.post("__APP__/order/status",{state:statez},
+			function(data){
+ 				$(".user_order").html(data);
+			})
+    })
+</script>
+</block>

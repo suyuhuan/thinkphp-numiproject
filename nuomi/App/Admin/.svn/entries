@@ -1,0 +1,77 @@
+9
+
+dir
+102
+https://192.168.118.222/svn/jian/App/Admin
+https://192.168.118.222/svn/jian
+
+
+
+2015-11-30T06:48:44.299000Z
+102
+susu
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f5490f20-07c4-1748-942a-ec6a360ec54d
+
+Model
+dir
+
+Controller
+dir
+
+Conf
+dir
+
+Common
+dir
+
+View
+dir
+
+index.html
+file
+
+
+
+
+2015-11-29T11:35:27.911091Z
+d41d8cd98f00b204e9800998ecf8427e
+2015-11-20T08:08:46.445125Z
+1
+fengfeng
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+

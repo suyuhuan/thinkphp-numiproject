@@ -1,0 +1,148 @@
+*{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	text-decoration:none;
+}
+.w{
+	width:980px;
+	margin:0 auto;
+
+}
+#header{
+	width:100%;
+	height:80px;
+	border-bottom:1px solid #ccc;
+}
+#header .logo{
+	float:left;
+	background:url("../images/logo.jpg") no-repeat;
+	height:47px;
+	margin-top:18px;
+	width:120px;
+}
+
+
+#header .login-area{
+	float:right;
+	color:#666;
+	height:32px;
+	margin-top:27px;
+	line-height:32px;
+	font-size:12px;
+}
+
+#header .login-btn{
+	display:inline-block;
+	width:62px;
+	height:30px;
+	font-weight:700;
+	line-height:30px;
+	text-align:center;
+	border:1px solid #DDDDDD;
+	border-radius:3px 3px 3px 3px;
+	color:#666666;
+}
+
+/*main start*/
+#main{
+	width:100%;
+	height:400px;
+	background:#F5FBFD;
+}
+#main .reg-content{
+	float:left;
+}
+.reg-content .input-text{padding:11px 10px;border:1px solid #dddddd;font-size:14px;height:16px;}
+.reg-content p{color:#666666}
+#main .reg-place{
+	width:350px;
+	height:40px;
+}
+#main .reg-code{width:100px;height:40px;}
+input{margin-top:20px;}
+#main .reg-check{font-size:12px;}
+#main .reg-submit{
+	width:350px;height:45px;background:#FF689B;
+	border:1px solid #FF689B;color:#fff;font-weight:bold;
+	font-size:17px;
+	border-radius:3px 3px 3px 3px;}
+#main .reg-sms{
+	width:260px;
+	height:210px;
+	background:#F0F5F5;
+	border:1px solid #D1EEFF;
+	float:right;
+	margin-top:20px;
+}
+.reg-sms p{
+	margin:0 10px;
+}
+.reg-sms .reg-sms-title{
+	border-bottom:1px solid #E6EDF2;
+	color:#666666;
+	height:50px;
+	line-height:50px;
+	margin:0 10px;
+	font-size:14px;
+	padding-left:30px;
+	font-weight:bold;
+}
+.reg-sms .reg-sms-p-text{
+	color:#666666;
+	font-size:12px;
+	margin-bottom:5px;
+	margin-top:20px;
+}
+.reg-sms .reg-sms-p-last{
+	color:#666666;
+	font-size:12px;
+	margin-top:5px;
+}
+.reg-sms .reg-sms-p-warn{
+	color:#F18300;
+	font-size:14px;
+	font-weight:bold;
+}
+
+/*footer start*/
+#footer{
+	width:100%;
+	border-top:5px solid #dbdbdb;
+	padding:40px 0 40px;
+}
+#footer .links{
+	font-size:13px;
+	text-align:center;
+}
+#footer span{
+	color:#cccccc;
+	margin:0 12px;
+}
+#footer a span{
+	display:inline-block;
+}
+	a:hover{
+		text-decoration:underline;
+	}
+#footer .link{
+	color:#666666;
+}
+#footer .tel{
+	font-size:13px;
+	color:#fd678c;
+	margin:0;
+}
+
+#footer .site-info{
+	color:#999999;
+	margin-top:30px;
+	text-align:center;
+	font-size:13px;
+}
+	
+#footer .site-info .link{
+	color:#999999;
+}
+
+/*footer end*/

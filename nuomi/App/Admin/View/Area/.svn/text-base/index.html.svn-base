@@ -1,0 +1,6 @@
+<extend name="Public:Layout/index"/>
+<block name='main'>
+
+    {$city}
+
+</block>

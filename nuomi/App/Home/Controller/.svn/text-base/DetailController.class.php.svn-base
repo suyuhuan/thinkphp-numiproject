@@ -1,0 +1,17 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class DetailController extends Controller {
+
+	//商品详情页展示
+	public function particulars(){
+		
+		$this->display();
+	}
+	//通过ajax加入购物车
+	public function cart(){}
+	//通过ajax获取评论（ajax分页）
+	public function getComment(){}
+	//通过ajax获取订单(ajax分页)
+	public function getOrder(){}
+}

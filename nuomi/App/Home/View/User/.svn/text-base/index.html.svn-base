@@ -1,0 +1,219 @@
+<extend name="Public:ucore"/>
+<block name="user_main">
+<div class="user_main fr">
+	<div class="user_main_head">
+		<ul>
+			<li>
+			  基础信息 
+			</li>
+			<li>
+			  个人资料
+			</li>
+			<li>
+			  收货地址
+			</li>
+		</ul>
+	</div>	
+		<!--账户设置-->
+	<div class="user_main_cont">
+		<ul class="user_info">
+						<li>
+							<span class="lg">用户名:</span>
+							<span class="lg_1">{$_SESSION['user']['username']}</span>
+							<span>
+								<a href="__CONTROLLER__/userset.html">百度账号设置</a>
+							</span>
+						</li>
+						<br/>
+						<li>
+							<span class="lg">密&nbsp;&nbsp;码:</span>
+							<span class="lg_1">******</span>
+							<span>
+							 	<a href="__CONTROLLER__/userset.html">修改密码</a>
+							</span>
+						</li>
+						<br/>
+						<li>
+							<span class="lg">手机号:</span>
+							<span class="lg_1">尚未绑定手机号</span>
+							<span>
+							<a href="__CONTROLLER__/userSet.html">立即绑定</a>
+							</span>
+					    </li>
+					    <br/>
+		 </ul>
+		 <ul class="user_info">
+						<li>
+							<span class="lg">可用余额:</span>
+							<span>
+							 	   	 		<a href="">查询|</a>
+							 	   	 		<a href="">充值|</a>
+							 	   	 		<a href="">体现|</a></span>
+							<span>原糯米余额提现事宜，请拨打客服电话4006-888-887</span>
+						</li>
+		 </ul>	
+	</div>
+		<!--用户基本信息-->
+	<div class="user_main_cont" style="display:none;">
+	    <div class="user_main_addr">
+			<h4>个人中心</h4>
+			<span><i></i>基本信息</span>
+			<form action="" method="">
+				<table class="table_set">
+					<tr>
+						<td align="center">
+							<span>*</span>
+							用户名:
+						</td>
+						<td>
+							{$user.username}
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							昵称:
+						</td>
+						<td>
+							{$user.name}
+						</td>
+					</tr>
+					<tr>
+						<td  align="center">
+							<span>*</span>
+							图像:
+						</td>
+						<td>
+							<img src="__PUBLIC__/admin/images/{$user.image}" width="80"/>
+						</td>
+					</tr>
+					<tr>
+						<td  align="center">
+							<span>*</span>
+							电子邮箱:
+						</td>
+						<td>
+							{$user.email}
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							 手机号码:
+						</td>
+						<td>
+							{$user.phone}
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<button type="submit">修改</button>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>	
+		<!--收货地址-->
+	<div class="user_main_cont" style="display:none;">
+		<div class="user_main_addr">
+			<h4>收货地址</h4>
+			<span><i></i>添加收货地址</span>
+			<form action="" method="">
+				<table>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							所在地区:
+						</td>
+						<td>
+							<select name="" id="">
+								<option value="">省份</option>
+							</select>
+							<select name="" id="">
+								<option value="">城市</option>
+							</select>
+							<select name="" id="">
+								<option value="">区域</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							街道地址:
+						</td>
+						<td>
+							<input class="lg" type="text">
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							邮政编码:
+						</td>
+						<td>
+							<input type="text">
+							<a href="">邮政查询</a>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							收货人姓名:
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							 手机号码:
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							电话号码:
+						</td>
+						<td>
+							<input class="sx" type="text">—
+							<input class="sx" type="text">—
+							<input class="sx" type="text">
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<button type="submit">保存</button>
+							<button>取消</button>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+</block>
+<block name="js">
+<script>
+	 $(function(){
+	$(".user_main .user_main_head ul >li:first").addClass("active");
+	$(".user_main .user_main_cont").not(":first").hide();
+	$(".user_main .user_main_head ul>li").unbind("click").bind("click", function(){
+		$(this).siblings("li").removeClass("active").end().addClass("active");
+		var index = $(".user_main .user_main_head ul >li").index( $(this) );
+		$(".user_main .user_main_cont").eq(index).siblings(".user_main .user_main_cont").hide().end().fadeIn("slow");
+   });
+});	
+</script>
+</block>

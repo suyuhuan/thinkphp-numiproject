@@ -1,0 +1,493 @@
+<extend name="Public:templet" />
+<block name="css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/index.css">
+</block>
+<block name="main">
+	
+	<div id="index-main">
+		<div class="w">
+			
+	<div class="left-menu">
+		<foreach name="category" item="categorys">
+			<if condition="$categorys['pid'] eq 0">
+				<div class="level-item">
+					<ul>
+						<li class="title"><a href="__MODULE__/goodslist/index/id/{$categorys.id}">{$categorys.name}</a></li>
+						<!--li class="list"><a href="">精选品牌</a></li-->
+						<!--li class="list"><a href="">小吃快餐</a></li-->
+					</ul>
+					<div class="second-menu">
+						<ul>			
+							<foreach name="category" item="categorys_child">
+
+								<if condition="$categorys_child['pid'] == $categorys['id']">
+									<li class="second-menu-list">
+										<a href="__MODULE__/menu/id/{$categorys_child.id}">{$categorys_child.name}</a>
+										<span class="sep-lines">
+									</li>
+								</if>
+							</foreach>								
+						</ul>
+					</div>
+				</div>	
+			</if>
+		</foreach>		
+	</div>
+			
+			<div class="mid-menu">
+				<div class="mid-menu-img">
+					<div id="imgs">
+					<a href=""><img class="img" src="__PUBLIC__/home/images/index-main1.jpg"></a> 
+					<a href=""><img class="img" src="__PUBLIC__/home/images/index-main2.jpg"></a> 
+					<a href=""><img class="img" src="__PUBLIC__/home/images/2015-11-14_162720.jpg"></a> 
+				</div>
+				</div>
+				<div class="mid-menu-lbox">
+					<ul>
+						<li class="mid-menu-title">热门团购</li>
+						<li class="mid-menu-list"><a href="">电影</a></li>
+						<li class="mid-menu-list"><a href="">自助餐</a></li>
+						<li class="mid-menu-list"><a href="">KTV</a></li>
+						<li class="mid-menu-list"><a href="">火锅</a></li>
+						<li class="mid-menu-list"><a href="">蛋糕</a></li>
+						<li class="mid-menu-list"><a href="">酒店</a></li>
+						<li class="mid-menu-list"><a href="">小吃快餐</a></li>
+						<li class="mid-menu-list"><a href="">西餐</a></li>
+					</ul>
+				</div>
+				<div class="mid-menu-mbox">
+					<ul>
+						<li class="mid-menu-title">热门团购</li>
+						<li class="mid-menu-list"><a href="">电影</a></li>
+						<li class="mid-menu-list"><a href="">自助餐</a></li>
+						<li class="mid-menu-list"><a href="">KTV</a></li>
+						<li class="mid-menu-list"><a href="">火锅</a></li>
+						<li class="mid-menu-list"><a href="">蛋糕</a></li>
+						<li class="mid-menu-list"><a href="">酒店</a></li>
+						<li class="mid-menu-list"><a href="">小吃快餐</a></li>
+						<li class="mid-menu-list"><a href="">西餐</a></li>
+					</ul>
+				</div>
+				<div class="mid-menu-rbox">
+					<ul>
+						<li class="mid-menu-title">热门团购</li>
+						<li class="mid-menu-list"><a href="">电影</a></li>
+						<li class="mid-menu-list"><a href="">自助餐</a></li>
+						<li class="mid-menu-list"><a href="">KTV</a></li>
+						<li class="mid-menu-list"><a href="">火锅</a></li>
+						<li class="mid-menu-list"><a href="">蛋糕</a></li>
+						<li class="mid-menu-list"><a href="">酒店</a></li>
+						<li class="mid-menu-list"><a href="">小吃快餐</a></li>
+						<li class="mid-menu-list"><a href="">西餐</a></li>
+					</ul>
+				</div>
+			</div>
+		
+			<div class="right-menu">
+				<div class="right-menu-tbox">
+					<a href=""><img src="__PUBLIC__/home/images/index-main-right1.jpg" height="260px"></a>
+				</div>
+				<div class="right-menu-box">
+					<a href=""><img src="__PUBLIC__/home/images/2015-11-12_161709.jpg" height="150px" width="248px"></a>
+				</div>
+			</div>	
+			<div class="clear"></div>
+
+
+			<div class="lw">
+				<div class="jingxuanpp">
+					<div class="jingxuanpp-nav">
+						<span>精选品牌-<span class="litle">抢购频道</span></span>
+						<a href="">全部 >></a></div>
+					<div class="jingxuanpp-content">
+						<ul>
+							<li class="no-left-margin">
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/267f9e2f07082838890f9423be99a9014c08f183.jpg" /></a>
+									<div class="header"><h4>王婆大虾</h4></div>
+									<div class="pinfo">
+										<span class="price">&yen;420</span>
+										<span class="ori-price">&yen;500</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/267f9e2f07082838890f9423be99a9014c08f183.jpg"/></a>
+									<div class="header"><h4>王婆大虾</h4></div>
+									<div class="pinfo">
+										<span class="price">&yen;420</span>
+										<span class="ori-price">&yen;500</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/267f9e2f07082838890f9423be99a9014c08f183.jpg"/></a>
+									<div class="header"><h4>王婆大虾</h4></div>
+									<div class="pinfo">
+										<span class="price">&yen;420</span>
+										<span class="ori-price">&yen;500</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/267f9e2f07082838890f9423be99a9014c08f183.jpg"/></a>
+									<div class="header"><h4>王婆大虾</h4></div>
+									<div class="pinfo">
+										<span class="price">&yen;420</span>
+										<span class="ori-price">&yen;500</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>			
+					
+				<div class="today-recom">
+					<div class="today-recom-nav"><h3>今日推荐</h3></div>
+					<div class="today-recom-content">
+						<ul>
+							<li class="no-left-margin">
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/50da81cb39dbb6fd97cac01e0f24ab18972b3770.jpg" height="138px" width="225px"/>
+									</div>
+								</a>
+								<div class="contentbox">
+									<a href="">
+										<div class="header">
+											<h4>王鼎汇砂</h4>
+											<span class="collected">精选</span>
+										</div>
+										<p>曼哈顿店100元代金券!可叠加使用，提供免费WiFi，节假日通用!</p>
+									</a>
+										<div class="add-info">
+											<span class="promo">立减10元</span>
+										</div>
+										<div class="pinfo">
+											<span class="price">&yen;84</span>
+											<span class="ori-price">价值&yen;100</span>
+										</div>
+										<div class="footer">
+											<span class="comment">4.4分</span>
+											<span class="sold">已售2078</span>
+										</div>
+								</div>
+								
+							</li>	
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/50da81cb39dbb6fd97cac01e0f24ab18972b3770.jpg" />
+									</div>
+								</a>
+								<div class="contentbox">
+									<a href="">
+										<div class="header">
+											<h4>王鼎汇砂</h4>
+											<span class="collected">精选</span>
+										</div>
+										<p>曼哈顿店100元代金券!可叠加使用，提供免费WiFi，节假日通用!</p>
+									</a>
+										<div class="add-info">
+											<span class="promo">立减10元</span>
+										</div>
+										<div class="pinfo">
+											<span class="price">&yen;84</span>
+											<span class="ori-price">价值&yen;100</span>
+										</div>
+										<div class="footer">
+											<span class="comment">4.4分</span>
+											<span class="sold">已售2078</span>
+										</div>
+									</div>
+								
+							</li>	
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/50da81cb39dbb6fd97cac01e0f24ab18972b3770.jpg"/>
+									</div>
+								</a>
+								<div class="contentbox">
+									<a href="">
+										<div class="header">
+											<h4>王鼎汇砂</h4>
+											<span class="collected">精选</span>
+										</div>
+										<p>曼哈顿店100元代金券!可叠加使用，提供免费WiFi，节假日通用!</p>
+									</a>
+										<div class="add-info">
+											<span class="promo">立减10元</span>
+										</div>
+										<div class="pinfo">
+											<span class="price">&yen;84</span>
+											<span class="ori-price">价值&yen;100</span>
+										</div>
+										<div class="footer">
+											<span class="comment">4.4分</span>
+											<span class="sold">已售2078</span>
+										</div>
+									</div>
+									
+							</li>	
+							<li>
+								<a href="">
+									<div class="imgbox">
+										<img src="__PUBLIC__/home/images/50da81cb39dbb6fd97cac01e0f24ab18972b3770.jpg"/>
+									</div>
+								</a>
+								<div class="contentbox">
+									<a href="">
+										<div class="header">
+											<h4>王鼎汇砂</h4>
+											<span class="collected">精选</span>
+										</div>
+										<p>曼哈顿店100元代金券!可叠加使用，提供免费WiFi，节假日通用!</p>
+									</a>
+										<div class="add-info">
+											<span class="promo">立减10元</span>
+										</div>
+										<div class="pinfo">
+											<span class="price">&yen;84</span>
+											<span class="ori-price">价值&yen;100</span>
+										</div>
+										<div class="footer">
+											<span class="comment">4.4分</span>
+											<span class="sold">已售2078</span>
+										</div>
+									</div>
+									
+							</li>					
+						</ul>
+					</div>
+				</div>
+
+			<div class=""></div>	
+	<div id="goods-list">
+			<foreach name="goods" item="good" key="gg">
+				
+					<div class="today-recom-nav"><h3>{$gg}</h3></div>
+					
+						
+						<div class="goods-content">
+						
+						<ul class="clearfix">
+								<foreach name="good" item="list">
+						<a href="__APP__/Details/index/id/{$list.id}">
+							<li class="ul-list">
+									<div class="imgbox">
+										<img src="__PUBLIC__/{$list.img}"/>
+									</div>								
+								<div class="contentbox">								
+										<div class="header">
+											<h4>【{$list.id}】{$list.name}</h4>
+										</div>
+										<p>{$list.descr}</p>								
+										<div class="add-info">
+											
+											<span <if condition="$list['is_best'] == 1">class="promo"</if>>{$list['is_best'] == '1' ? "精品" : ''}</span>
+
+											<span <if condition="$list['is_phone'] == 1">class="phone"</if>>	<span <if condition="$list['is_phone'] == 1">class="text"</if>></span>{$list['is_phone'] =='1'?'手机专享':''}</span>
+										</div>
+
+										<div class="pinfo clearfix">
+											<span class="price">&yen;{$list.price}</span>
+											<span class="ori-price">价值&yen;{$list.oldprice}</span>
+										</div>
+										
+										<div class="footer">
+											<span class="comment">4.4分</span>
+											<span class="sold">已售2078</span>
+										</div>
+									</div>
+								</li>	
+							</a>
+							</foreach>
+										
+							</ul>
+					
+						</div>
+						
+					
+					<div class="more" style="margin-bottom:20px;"><a href="">查看全部团购 ></a></div>
+				
+			</foreach>
+				</div>
+				
+				<div class="clear"></div>
+			</div>
+				
+
+			<div class="rw">
+				<div class="hot-area">
+					<h2>热门专题</h2>
+					<ul>
+						<li>
+							<a href="">
+								<div class="left-content">
+									<h3>味蕾诱惑</h3>
+									<p>性感美食等你来</p>
+									<span class="sold-info">已售144496513</span>
+								</div>
+								<div class="right-pic">
+									<img src="__PUBLIC__/home/images/8cb1cb1349540923171a84f09758d109b2de49c9.jpg">
+								</div>
+							</a>
+						</li>
+
+						<li>
+							<a href="">
+								<div class="left-content">
+									<h3>味蕾诱惑</h3>
+									<p>性感美食等你来</p>
+									<span class="sold-info">已售144496513</span>
+								</div>
+								<div class="right-pic">
+									<img src="__PUBLIC__/home/images/8cb1cb1349540923171a84f09758d109b2de49c9.jpg">
+								</div>
+							</a>
+						</li>
+
+						<li>
+							<a href="">
+								<div class="left-content">
+									<h3>味蕾诱惑</h3>
+									<p>性感美食等你来</p>
+									<span class="sold-info">已售144496513</span>
+								</div>
+								<div class="right-pic">
+									<img src="__PUBLIC__/home/images/8cb1cb1349540923171a84f09758d109b2de49c9.jpg">
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rw">
+				<div class="panel">
+					<h2>排行榜</h2>
+					<ul class="nav">
+						<li><a href="" class="active">美食</a></li>
+						<li><a href="">电影</a></li>
+						<li><a href="">娱乐</a></li>
+						<li><a href="">生活</a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+					</ul>
+					<div class="clear"></div>
+					<ul class="panellist">
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="rw">
+				<div class="panel">
+					<h2>猜你喜欢</h2>
+					<ul class="nav">
+						<li><a href="" class="active">美食</a></li>
+						<li><a href="">电影</a></li>
+						<li><a href="">娱乐</a></li>
+						<li><a href="">生活</a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+						<li style="display:none"><a href=""></a></li>
+					</ul>
+					<div class="clear"></div>
+					<ul class="panellist">
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img-holder">
+									<img src="__PUBLIC__/home/images/f703738da97739126d759599fd198618377ae2f3.jpg">
+								</div>
+								<div class="content">
+									<h4>大鸭梨</h4>
+									<p>100元代金券！可叠加使用</p>
+									<span class="price">&yen;85</span>
+									<span class="ori-price">价值&yen;100</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="clear"></div>
+</block>

@@ -1,0 +1,127 @@
+<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>百度糯米- 用户评论！</title>
+<link href="/nuomi/Public/home/css/review.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+	<?php if(($_SESSION['switch']) == "0"): ?><script type="text/javascript">
+		$('#website').onload(function(){
+			
+		})
+	</script>
+	<?php else: ?>
+	<div class="review_warp">
+		<div class="review">
+    		<div class="review_left">       	
+                <div class="review_shop">
+                    <span class="review_li">商品评价：</span>
+                </div>
+            </div>
+            <div class="review_right">
+            	<a href="" target="_blank" class="review_righta">每天最多可得200积分</a>
+            </div>
+            <div class="sql_clear"></div>
+            <div class="sql">
+            	<h3 class="sql_h3">店铺动态评分</h3>
+                <ul>
+                	<li class="sql_li1">宝贝:　<?php echo ($order["name"]); ?></li>
+                    <li class="sql_li2">宝贝与描述相符</li>
+                    <li class="sql_li3">
+                    	<input type="checkbox" name="check" value="1">
+                    	<div class="sql_btn">全部匿名评价</div>
+                    </li>
+                </ul>
+            </div>
+            <form action="/nuomi/index.php/Comment/addComment" method="post">
+            <div class="tootsie">
+            	<div class="tootsie_img">
+                	<img src="/nuomi/Public/<?php echo ($order["img"]); ?>" width="200" style="margin-left:20px">
+                </div>
+				<input type="hidden" name="state" value="<?php echo ($order["state"]); ?>">
+				<input type="hidden" name="userid" value="<?php echo ($order["user_id"]); ?>">
+				<input type="hidden" name="goodid" value="<?php echo ($order["goods_id"]); ?>">
+				<input type="hidden" name="orderid" value="<?php echo ($order["id"]); ?>">
+                <div class="correspond">
+					<input type="hidden" name="goodpoint" value=""/>
+                	<span><b></b></span> <span class="point" style="color:#f46; background:none"></span>
+                </div>
+                <div class="textarea">
+                	<textarea name="content" style="width:640px; height:263px;"></textarea>
+                    <div class="anonymity">
+                    	<input type="checkbox" name="checked" value="1">
+                    	<span>匿名评论</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="logistics">
+            	<div class="serving" >
+                	<p>卖家的服务态度：</p>
+                	<span stute="1"><b class="y_over"></b></span>
+                    <p>卖家态度很差，还骂人、说脏话,简直不把顾客当回事</p>
+                </div>
+                <div class="serving"> 
+                    <p>卖家的商品：</p>
+                	<span stute="2"><b class="y_over"></b></span>
+                    <p>再三提醒下，卖家才发货，耽误我时间，包装也很马虎</p>
+                </div>
+            </div>
+             <div class="fsubmit">
+                <input type="submit" name="sub" value="确认提交">
+                <a href="/nuomi/index.php/order/index" target="_blank">以后再评</a>
+             </div>  
+             </form>   
+   	 	</div>
+    </div>    
+</body>
+<script type="text/javascript" src="/nuomi/Public/home/js/jquery.js"></script>
+<script type="text/javascript">
+	$('.correspond span').click(function(ent){
+		event = ent || window.event;
+		var width = parseInt(event.pageX) - parseInt($(this).offset().left);
+		$(this).children('b').attr('style','width:'+width+'px');
+		var point = ((width - 27) / 17).toFixed(1);
+		$('.point').html(point+'分');
+		$(this).siblings('input').val(point);
+	});
+	
+	// 
+	$('.serving span').click(function(ent){
+		event = ent || window.event;
+		var width = parseInt(event.pageX) - parseInt($(this).offset().left);
+		$(this).children('b').attr('style','width:'+width+'px');
+		var point = ((width - 27) / 17).toFixed(1);
+		var stute = parseInt($(this).attr('stute'));
+		if(stute == 1){
+			if(point >= 0 && point < 1){
+				$(this).next().html('卖家服务很差，不把顾客当回事');
+			}else if(point >= 1 && point < 2){
+				$(this).next().html('卖家有点不耐烦，承诺的服务兑现不了');
+			}else if(point >= 2 && point < 3){
+				$(this).next().html('卖家态度一般，谈不上沟通顺畅');
+			}else if(point >= 3 && point < 4){
+				$(this).next().html('卖家服务挺好的，沟通挺顺畅的，总体满意');
+			}else if(point >= 4 && point <= 5){
+				$(this).next().html('卖家的服务太棒了，考虑非常周到，完全超出期望值');
+			}
+		}
+		
+		if(stute == 2){
+			if(point >= 0 && point < 1){
+				$(this).next().html('再三提醒下，卖家才发货，耽误我时间，包装也很马虎');
+			}else if(point >= 1 && point < 2){
+				$(this).next().html('卖家发货有点慢的，催了几次终于发货了');
+			}else if(point >= 2 && point < 3){
+				$(this).next().html('卖家发货速度一般，提醒后才发货的');
+			}else if(point >= 3 && point < 4){
+				$(this).next().html('卖家发货还算及时');
+			}else if(point >= 4 && point <= 5){
+				$(this).next().html('卖家发货速度非常快');
+			}
+		}
+	});
+</script>
+</html><?php endif; ?>

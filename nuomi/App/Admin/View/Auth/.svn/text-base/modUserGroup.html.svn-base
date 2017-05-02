@@ -1,0 +1,17 @@
+<extend name="Public:Layout/index"/>
+
+<block name="main">
+	<form action="__ACTION__" method="post"> 
+	
+		<p>
+			组名：
+			<select name="group_id">
+				<foreach name="groups" item="group">
+					<option value="{$group.id}">{$group.title}</option>
+				</foreach>
+			</select>
+			<input type="hidden" name="uid" value="{$Think.get.uid}"/>
+		</p>
+		<input type="submit" name="sub" value="添加"/>
+	</form>
+</block>

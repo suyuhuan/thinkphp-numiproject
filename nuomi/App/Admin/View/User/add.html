@@ -1,0 +1,169 @@
+<extend name="Public:Layout/index"/>
+<block name="main">
+	<script src="__PUBLIC__/admin/js/jquery.js"></script>
+	<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+
+							<li>
+								<a href="#">用户管理</a>
+							</li>
+							<li class="active">添加用户</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." name="username" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								用户管理
+								<small>
+									<i class="icon-double-angle-right"></i>
+									添加用户
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-responsive">
+											<form action="__CONTROLLER__/add" method="post" enctype="multipart/form-data">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+												<tbody>
+													<tr>
+														<td style="text-align:right;">添加用户：</td>
+														<td><input type="text" name="username" id="form-field-1" placeholder="输入用户名" class="col-xs-10 col-sm-5" /><span class="userinfo" style="font-size:12px;display:none;"></span></td>
+													</tr>
+													<tr>
+														<td style="text-align:right;">密码：</td>
+														<td><input type="password" name="password" id="form-field-2" placeholder="输入密码" class="col-xs-10 col-sm-5" /><span class="pwdinfo" style="font-size:12px;display:none"></span></td>
+													</tr>
+													<tr>
+														<td style="text-align:right;">确认密码：</td>
+														<td><input type="password" name="repassword" id="form-field-3" placeholder="确认密码" class="col-xs-10 col-sm-5" /><span class="repwdinfo" style="font-size:12px;display:none"></span></td>
+													</tr>
+													<tr>
+														<td style="text-align:right;">电子邮箱：</td>
+														<td><input type="text" name="email" id="form-field-3" placeholder="电子邮箱" class="col-xs-10 col-sm-5" /></td>
+													</tr>
+													<tr>
+														<td style="text-align:right;">用户状态：</td>
+														<td>
+															<label >
+															<input type="radio" name="status" value="1"/>
+															在线</label>&nbsp;&nbsp;
+															<label>
+															<input type="radio" name="status" value="0" checked/>
+															离线
+														    </label>
+														</td>
+													</tr>					
+													<tr>
+														<td style="text-align:right;"></td>
+														<td>
+															<input type="submit" class="btn no-border" name="sub" value="添加" style="">&nbsp;&nbsp;&nbsp;&nbsp;
+															<input class="btn no-border" type="reset" value="重置">
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<input type="hidden" name="id" value="{$user['id']}">
+											</form>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+	</div>
+	<script>
+		 $("#form-field-1").blur(function(){
+		 	var user = $("#form-field-1").val();
+
+		 	if(user==''){
+		 		$(".userinfo").show();
+		 		$(".userinfo").text(" *用户名不能为空");
+		 		$('.userinfo').css('color','red');
+		 	}else{
+		 		if(user.length < 4 || user.length > 18){
+
+		 			$(".userinfo").show();
+		 			$(".userinfo").text("　*用户名须4-18个字符");
+		 			$('.userinfo').css('color','red');
+		 		}else{
+		 			$.ajax({
+		 				'type':'post',
+		 				'url':'__CONTROLLER__/checkUsername',
+		 				'data':{'username':user},
+		 				'success':function(data){
+		 					if(data == 1){
+		 						$('.userinfo').show();
+		 						$('.userinfo').text("　*用户名已存在！");
+		 						$('.userinfo').css('color','red');
+		 					}else{
+		 						$('.userinfo').show();
+		 						$('.userinfo').text('　*用户名可用');
+		 						$('.userinfo').css('color','green');
+		 					}
+
+		 				},'async':false});
+		 		}
+		 	}
+		 });
+
+		 //判断密码
+		 $("#form-field-2").blur(function(){
+		 	var pwd = $("#form-field-2").val();
+		 	if(pwd==''){
+		 		$('.pwdinfo').show();
+		 		$('.pwdinfo').text("　*密码不能为空");
+		 		$('.pwdinfo').css('color','red');
+		 	}else{
+		 		if(pwd.length < 6 || pwd.length>16){
+		 			$('.pwdinfo').show();
+		 			$('.pwdinfo').text("　*密码长度须6-16位");
+		 			$('.pwdinfo').css('color','red');
+		 		}
+		 		}
+		 }).focus(function(){
+		 	$('.pwdinfo').hide();
+		 });
+
+		 //判断确认密码是否一致
+		 $("#form-field-3").blur(function(){
+		 	var repwd = $("#form-field-3").val();
+		 	var pwd = $("#form-field-2").val();
+		 	if(repwd != pwd){
+		 		$('.repwdinfo').show();
+		 		$('.repwdinfo').text("　*确认密码不一致！");
+		 		$('.repwdinfo').css('color','red');
+		 	}
+		 }).focus(function(){
+		 	$(".repwdinfo").text('');
+		 	$(".repwdinfo").hide();
+		 });
+		 
+
+	</script>
+</block>

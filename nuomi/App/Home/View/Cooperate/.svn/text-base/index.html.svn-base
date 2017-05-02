@@ -1,0 +1,92 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>百度糯米-登录页</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/cooperate.css">
+</head>
+<body>
+	<div id="header">
+		<div class="w">
+			<div class="logo">
+				<a href="__APP__/index.html"><img src="__PUBLIC__/home/images/logo.jpg"/></a>
+			</div>
+			
+			<div class="login-text">商家合作</div>
+			
+		</div>
+	</div>
+
+<div id="main">
+	<div class="banner">
+		<div class="w">
+			<img src="__PUBLIC__/home/images/banner2__b6a7b1f.png">
+		</div>
+	</div>
+	<div class="w">
+		<div class="bigbox">
+			<h3>提交合作信息</h3>
+			<form>
+			<p>姓　　名:<input type="text" name="name"></p>
+			<p>手　　机:<input type="text" name="tel"></p>
+			<p>门店名称:<input type="text" name="shopName"></p>
+			<p>选择地区:
+				<select name="province">
+					<option>--请选择--</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+				</select>
+				<select name="city">
+					<option>--请选择--</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+				</select>
+				<select name="country">
+					<option>--请选择--</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+					<option>北京</option>
+				</select>
+
+			</p>
+			<p>详细地址:<input type="text" name="XXaddress"></p>
+			<p>合作内容:<input type="text" name="content"></p>
+			<p><input class="submit" type="submit" value="提交信息"></p>
+				
+			</form>
+	</div>
+	</div>
+	<div clear="both"></div>
+</div>
+<div id="footer">
+	<div class="w">
+		<div class="links">
+			<a class="link" href="">关于百度糯米</a>
+			<span>|</span>
+			<a class="link" href="">常见问题</a>
+			<span>|</span>
+			<a class="link" href="">违规投诉&廉政举报</a>
+			<span>|</span>
+			<a class="link" href="">开放平台</a>
+			<span>|</span>
+			<a class="link" href="">用户协议</a>
+			<span>|</span>
+			客服电话:
+			<span class="tel">4006-888-887</span>
+			(每天9:00-22:00)
+		</div>
+
+		<div class="site-info">
+			©2015 nuomi.com 
+			<a class="link" target="_blank" href="">京ICP证030173号</a> 京公网安备11010802014106号  <a class="link" href="" target="_blank">互联网药品信息服务资格证编号（京-经营性-2011-0009）</a> </div>
+	</div>
+</div>
+</body>
+</html>

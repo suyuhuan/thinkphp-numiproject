@@ -1,0 +1,301 @@
+<extend name="Public:templet" />
+<block name="js">
+<script src="__PUBLIC__/Home/js/jquery.js"></script>
+</block>
+<block name="css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/hotel.css">
+	
+</block>
+<block name="main">
+	<div class="search-hotle clearfix">
+			<div class="input-wrap-area input-wrap l">
+				<label>入住城市</label>
+				<div class="hidden-city" id="click">
+					<input type="text" name=""value="郑州" />
+				<!--隐藏城市-->
+					<div id="j-city-list" style="display:none">
+						<div class="city-list">
+							<div class="city-list-l">
+								<ul class="city-list-ul">
+									<li style=" background:#ff5e89;color:#fff; font-family:'微软雅黑'"><a href="#" style="color:#fff">热门城市</a></li>
+									<li><a href="#">A-G</a></li>
+									<li><a href="#">M-T</a></li>
+									<li><a href="#">H-L</a></li>
+									<li><a href="#">W-Z</a></li>
+								</ul>
+								
+								
+							</div>
+							<div class="city-list-r">
+								X
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+	
+	
+	
+	
+	
+	
+	
+			<div class="input-wrap-hotle input-wrap l">
+				
+					<label>酒店位置</label>
+					<div class="hidden-hotel" id="hidden-hotel-click">
+					<input type="text" name=""value="不限"/>
+					<div id="j-area-list" style="display:none">
+						sssssssss
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			<div class="input-wrap-hot r">
+				<h5 class="l">当季热门:</h5>
+				<a href="#" class="item l">成都</a>
+				<a href="#" class="item l">西安</a>
+				<a href="#" class="item l">杭州</a>
+				<a href="#" class="item l">天津</a>
+				<a href="#" class="item l">上海</a>
+				<a href="#" class="item l">北京</a>
+			</div>
+		</div>
+		<!--分类-->
+		<div class="classify">
+			<div class="classify-all">
+				<div class="classify-all-fl">
+					<h5>分类</h5>
+					<span class="bgcolor">全部</span>
+					<span class="area-all">
+						<foreach name="type" item="type">
+						<a href="__CONTROLLER__/id/{$type.id}">{$type.type}</a>
+						</foreach>
+						
+					</span>
+				</div>
+			</div>
+			<!--酒店区域-->
+			<div class="hotel-area">
+				<div class="hotel-area-qy clearfix">
+					<h5>区域</h5>
+					<span class="hotel-area-all">全部</span>
+					<span class="region">
+						<a href="#"><b>行政区</b></a>
+						<div class="triange-region">
+							<i class="triange"></i>
+							<div class="region-hotel">
+								<div class="district-list-ab clearfix">
+								<foreach name="area" item="area">
+									<a href="__CONTROLLER__/id/{$area.id}">{$area.area}</a>
+								</foreach>
+									
+									
+								</div>
+							</div>
+						</div>
+							
+							
+						</div>
+					</span>
+				</div>
+				<div class="hotel-price clearfix">
+					<h5>价格</h5>
+					<span class="bjprice">全部</span>
+					<span class="filter-items-ab">
+						<a href="">0-50元</a>
+						<a href="">50-100元</a>
+						<a href="">100-200元</a>
+						<a href="">200-300元</a>
+						<a href="">300元以上</a>
+					</span>
+				</div>
+				<div class="w-hotel-crumbs">
+					<span class="infor">
+						共找到郑州酒店团购
+						<span class="hotel-number">6786</span>
+						个
+					</span>
+				</div>
+				
+			</div>
+			<div class="normal">
+				<span class="sort-area">
+					<a href="#" class="sort-default sort-normal">默认</a>
+					<a href="#" class="price-default">
+						<span>价格</span>
+						<i class="price-default-ico"></i>
+					</a>
+					<a href="#" class="sort-up">
+						<span>折扣</span>
+						<i class="sort-up-ico"></i>
+					</a>
+					<a href="#" class="sort-new">
+						<span>最新发布</span>
+						<i class="sort-new-ico"></i>
+					</a>
+				</span>
+				<span class="filter-area">
+					<div class="filter-checkbox">
+						<input type="checkbox" name=""/>免预约
+					</div>
+					<div class="filter-checkbox">
+						<input type="checkbox" name=""/>抵用卷
+					</div>
+					<div class="filter-checkbox ">
+						<input type="checkbox" name=""/>
+						<span class="filter-checkbox-ico">全网最低</span>
+						<span class="hot-tip">
+							
+						</span>
+					</div>
+				</span>
+				<span class="sortbar-right">
+					<div class="w-search" style="display:block;">
+						<input type="text" name="" value="酒店"/>
+						<input type="submit" name="" value=""/>
+					</div>
+					<div class="page-area">
+						<a href="#">
+							<span><</span>
+						</a>
+							<span class="pagg-number" style="color:#000;font-size:12px;">
+								<span class="current">
+									<strong style="color:red;font-size:12px;">1</strong>
+								</span>
+								/1
+							</span>
+							
+						<a href="#">
+							<span>></span>
+						</a>
+					</div>
+				</span>
+			</div>
+			
+		</div>
+		<div id="j-goods-area">
+			<div class="goods-area clearfix">
+			  <foreach name="goods" item="good">
+				<ul class="goods-area-ul clearfix">
+					<li class="goods-area-li clearfix">
+						<a href="__APP__/Details/index/id/{$good.id}">
+							<div class="imgbox">
+								<div style="display:none;" class="block">
+									<div class="range-area"></div>
+									<div class="range-inner">
+										<span class="locate-iconfont"></span>
+										<p>{$good.cate_id}</p>
+									</div>
+								</div>
+								<div class="borderbox">
+									<img width="224px" height="135px" src="__PUBLIC__/{$good.img}"/>
+								</div>
+								<div class="contentbox">
+									<a href="#">
+										<div class="header-title clearfix">
+											<h4>【{$good.id}】{$good.name}</h4>
+										</div>
+										<p>{$good.descr}</p>
+									</a>
+									<div class="add-info">
+										<span class="promo">{$good['is_best'] == '1' ? "精品":""}</span>
+									</div>
+									<div class="pinfo clearfix">
+										<span class="price">
+											<span class="moneyico">¥</span>
+											{$good.price}
+										</span>
+										<span class="ori-price">
+											价值
+											<span class="price-line">
+												¥
+												<del>{$good.oldprice}</del>
+											</span>
+										</span>
+									</div>
+									<div class="footer clearfix">
+										<span class="comment-disable">暂无评分</span>
+										<span class="sold">新单</span>
+										<div class="bottom-border"></div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			 </foreach>
+			</div>
+			<!--分页-->
+			<div class="w-channel-pager clearfix">
+				<div class="pager-info">
+					共
+					<span class="good-total ml5 mr5">6792</span>
+					条/每页
+					<span class="ml5 mr5">80</span>
+					条
+				</div>
+				<div class="ui-pager">
+					<a href="#" class="pager-f">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+					<a href="#">7</a>
+					<a href="#">8</a>
+					<a href="#">9</a>
+					<a href="#">10</a>
+					<a href="#">11</a>
+					
+				</div>
+			</div>
+		</div>
+       
+</block>
+<block name="js">
+	<script type="text/javascript"charset="utf-8">
+		
+		$("#click").toggle(function(){
+          	$(this).find("div").show();
+		
+        },function(){
+        	$(this).find("div").hide();
+        });
+    
+        $("#hidden-hotel-click").toggle(function(){
+        	$(this).find("div").show();
+        },function(){
+        	$(this).find("div").hide();
+        });
+		
+		
+		//显示具体位置
+		$(".goods-area-li").hover(function(){
+			$(this).find(".block").show();
+		},function(){
+		$(".block").fadeOut();
+		});
+		
+		
+
+	</script>
+</block>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/css.css">
+<div class="valuation-content">
+	<ul>
+    <foreach name="info" item="vol">
+    
+      <div class="photo">
+     	<img src="__PUBLIC__/Uploads/user/{$vol.image}?id/{:rand()}"/>
+        <span>{$vol.username}</span>
+      </div>
+      <foreach name="vol['comt']" item="vos">
+	        <div class="time">
+				<if condition='$vos["stute"] eq 1'>追评：
+			    </if>
+				{:date('Y-m-d H:i:s',$vos['comtime'])} 说：
+			<div class="publish-star">
+
+				<div id="pub-star" class="pub-star">
+					<!-- {} -->
+					<if condition="$vos['goodpoint'] eq 1">
+					 	<div style="width:14px" class="light-star"></div>
+					 <elseif condition="$vos['goodpoint'] eq 2"/>
+					 	<div style="width:28px" class="light-star"></div> 
+					 <elseif condition="$vos['goodpoint'] eq 3"/>
+					 	<div style="width:42px" class="light-star"></div>
+					  <elseif condition="$vos['goodpoint'] eq 4"/>
+					  	<div style="width:56px" class="light-star"></div> 
+					  <elseif condition="$vos['goodpoint'] eq 5"/>
+					  	<div style="width:70px" class="light-star"></div>
+					  </if>
+				</div>
+			</div>
+		    </div>
+            <li>
+            	{$vos['content']}
+            </li>
+   </foreach>
+</foreach>
+
+	</ul>
+</div>
+<!--分页-->
+
+<div class="uipage" style="height:25px;margin-top:5px;text-align:right">
+		{$page}
+</div>
+<script>
+		$('.pagination').addClass('Yahoo');
+		$('.pagination li').css('float','left');
+</script>

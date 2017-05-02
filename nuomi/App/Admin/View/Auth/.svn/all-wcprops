@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/jian/!svn/ver/101/App/Admin/View/Auth
+END
+mod.html
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/jian/!svn/ver/48/App/Admin/View/Auth/mod.html
+END
+addRule.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/jian/!svn/ver/44/App/Admin/View/Auth/addRule.html
+END
+ruleList.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/jian/!svn/ver/48/App/Admin/View/Auth/ruleList.html
+END
+addGroup.html
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/jian/!svn/ver/48/App/Admin/View/Auth/addGroup.html
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/jian/!svn/ver/101/App/Admin/View/Auth/edit.html
+END
+groupList.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/jian/!svn/ver/79/App/Admin/View/Auth/groupList.html
+END
+modUserGroup.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/jian/!svn/ver/44/App/Admin/View/Auth/modUserGroup.html
+END

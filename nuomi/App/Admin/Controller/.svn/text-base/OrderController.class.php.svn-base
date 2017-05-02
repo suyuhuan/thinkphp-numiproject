@@ -1,0 +1,30 @@
+<?php
+namespace Admin\Controller;
+use Think\Controller;
+class OrderController extends Controller 
+{
+	//获取首页
+    public function index(){
+    	$order = M("order");
+    	$data = $order -> select();
+    	$this -> assign("order",$data);
+		
+    	$this->display();
+    }
+
+
+    //删除订单
+    public function del($id){
+        $order = M("order");
+
+        if($order -> delete($id)){
+            $this -> redirect("order/index");
+        }else{
+            $this -> error("删除失败！");
+        }
+    }
+	
+	
+	
+	
+}

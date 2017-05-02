@@ -1,0 +1,169 @@
+<extend name="Public:ucore"/>
+<block name="user_main">
+<div class="user_main fr">
+	<div class="user_main_head">
+		<ul>
+			<li>
+			  账号设置
+			</li>
+			<li>
+			  绑定手机
+			</li>
+			<li> 
+			  修改密码
+			</li>
+		</ul>
+	</div>
+
+		<!--用户基本设置-->
+	<div class="user_main_cont" >
+	     <div class="user_main_addr">
+			<a href="__CONTROLLER__/"><h4>返回个人中心</h4></a>
+			<span><i></i>基本设置</span>
+			<form action="__CONTROLLER__/mod" method="post">
+				<table>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							用户名:
+						</td>
+						<td>
+							<input type="text" value="{$_SESSION['user']['username']}" />
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							昵称:
+						</td>
+						<td>
+							<input type="text" value="" name="name"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							图像:
+						</td>
+						<td>
+							<input type="file" name="image"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="center">
+							<span>*</span>
+							电子邮箱:
+						</td>
+						<td>
+							<input type="text" value="" name="email"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<input class="button" type="submit" name="sub" value="提交"/>
+							
+							<input class="button last" type="reset" value="重置"/>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>	
+		<!--绑定手机-->
+	<div class="user_main_cont" style="display:none;">
+		<div class="user_main_addr">
+			<a href="__CONTROLLER__/"><h4>返回个人中心</h4></a>
+			<span><i></i>绑定手机</span>
+			<form action="__CONTROLLER__/" method="post">
+				<table>
+					
+					<tr>
+						<td align="right">
+							<span>*</span>
+							绑定手机号:
+						</td>
+						<td>
+							<input type="text" name="phone">
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<input class="button first" type="submit" name="sub" value="提交"/>
+							<input class="button last" type="reset" value="重置"/>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+		<!--修改密码-->
+	<div class="user_main_cont" style="display:none;">
+		<div class="user_main_addr">
+			<a href="__CONTROLLER__/"><h4>返回个人中心</h4></a>
+			<span><i></i>密码设置</span>
+			<form action="__CONTROLLER__/modPwd" method="post">
+				<table>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							旧密码:
+						</td>
+						<td>
+							<input type="text" name="pwd"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							新密码:
+						</td>
+						<td>
+							<input type="text" name="npwd"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<span>*</span>
+							确认密码:
+						</td>
+						<td>
+							<input type="text" name="nrepwd"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<input class="button first" type="submit" name="sub" value="提交"/>
+							<input class="button last" type="reset" value="重置"/>
+						</td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+	
+</div>
+</block>
+<block name="js">
+<script>
+	 $(function(){
+	$(".user_main .user_main_head ul >li:first").addClass("active");
+	$(".user_main .user_main_cont").not(":first").hide();
+	$(".user_main .user_main_head ul>li").unbind("click").bind("click", function(){
+		$(this).siblings("li").removeClass("active").end().addClass("active");
+		var index = $(".user_main .user_main_head ul >li").index( $(this) );
+		$(".user_main .user_main_cont").eq(index).siblings(".user_main .user_main_cont").hide().end().fadeIn("slow");
+   });
+});
+
+	
+</script>
+</block>

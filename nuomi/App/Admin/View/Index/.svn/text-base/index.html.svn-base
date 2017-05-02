@@ -1,0 +1,4 @@
+<extend name="Public:Layout/index"/>
+<block name="main">
+<h3>欢迎使用后台</h3>
+</block>

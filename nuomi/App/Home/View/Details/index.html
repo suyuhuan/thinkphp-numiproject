@@ -1,0 +1,729 @@
+<extend name="Public:templet" />
+<block name="css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/detail.css">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/css.css">
+</block>
+<block name="main">
+	<div class="p-detail clearfix">
+			<div class="w-bread-crumb">
+				<ul class="p-bread-crumb">
+					<li class="curmb">
+						<a href="#">团购</a>
+						<span>></span>
+					</li>
+					<li class="curmb">
+						<a href="#">{$pid.name}</a>
+						<span>></span>
+					</li>
+					<li class="curmb">
+						<a href="#">{$cate.name}</a>
+						<span>></span>
+					</li>
+					<li class="curmb  crumb-last">
+						<a href="#">{$good['name']}</a>
+					</li>
+				</ul>
+			</div>
+		<form id="form" action="__APP__/Getorder/index" method="post" enctype="multipart/form-data" >
+			<div class="p-item-info clearfix">
+				<div class="w-item-info clearfix">
+					<input type="hidden" name="price" value="{$good['price']}">
+					<input type="hidden" name="id" value="{$good['id']}">
+					<input type="hidden" name="name" value="{$good['name']}">
+					<input type="hidden" name="img" value="{$good['img']}">
+					<input type="hidden" name="descr" value="{$good['descr']}">
+					<h2>{$good['name']}</h2>
+					<div class="item-list">
+					<span class="text-main">{$good['descr']}</span>
+				</div>
+
+
+			<!--图片左边-->
+				<div class="ii-images clearfix">
+					<div class="item-image">
+						<div class="item-status clearfix">
+						<div class="ico-status ico-multideal">
+							<img src="__PUBLIC__/home/images/ico_freeappointment_60974ec.png"/>
+						</div>
+						</div>
+						<img src="__PUBLIC__/{$good['img']}"/>
+					</div>
+					<!--缩略图部分breviary-->
+					<ul class="breviary-pic">
+						<li><a href="#"><img width="112px" height="66px" src="__PUBLIC__/{$good['img']}"/></a></li>
+					</ul>
+					<div class="collect-share">
+						<a href="" class="collect-l" style="border-right:1px solid #ccc;">
+							<i class="collect"></i>
+							<span>收藏</span>
+						</a>
+						<a href="#" class="share-r" style="margin-left:20px;">
+							<i class="share"></i>
+							<span>分享</span>
+						</a>
+					</div>
+					
+				</div>
+			
+				
+				<!--图片右边-->
+				<div class="ii-intro">
+					<div class="price-area clearfix">
+						<!--现价-->
+						<div class="match-price-area">
+							<span class="unit">￥</span>
+							<span class="real-price">{$good['price']}</span>
+						</div>
+						
+						<!--折扣-->
+						<div class="current-price-area discount">
+							<span class="current-price">3.3折</span>
+							<span class="discount">折扣</span>
+						</div>
+						<!--原价-->
+						<div class="market-price-area">
+							<del class="market-price">￥{$good['oldprice']}</del>
+							<span class="market-area-a">价值</span>
+						</div>
+					</div>
+					<div class="ul-ugc-strategy-area">
+						<ul class="ugc-strategy-area">
+							<li class="item-bought">
+								<span class="intro-strong">180</span>
+								人已团购
+							</li>
+							<li id="j-ugc-grade" class="ugc-grade">
+								<!--小星星-->
+								<div class="ugc-star clearfix">
+									<div class="star"></div>
+									<div class="star-num">4.3</div>
+								</div>
+								<!--几条评论-->
+								<div class="ug-num">
+									<span class="intro-strong">7</span>
+									条评论
+								</div>
+							</li>
+							<li class="heart">
+								<i class="like"></i>
+								<span><a href="#">随便退</a></span>
+							</li>
+						</ul>
+					</div>
+					<div class="buy-panel-wrap">
+						<div class="item-countdown-row clearfix">
+							<span class="name">有效期至</span>
+							<span class="value">2015-12-17</span>
+						</div>
+						<div class="select-num clearfix">
+							<div class="j-item-buycount-row clearfix">
+								<span class="name">数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量</span>
+							</div>
+							<div class="buycount-ctrl">
+								<span href="#" class="dec" onclick="decr(this)">-</span>
+								<input type="text" name="num" value=1>
+								<span href="#" class="add" onclick="add(this)">+</span>
+							</div>
+						</div>
+						<div class="divbuttom">
+							<a href="javascript:sub()" id="buy">立即购买</a>
+						</div>
+					</div>
+		
+				</div>
+	</form>		</div>
+			
+		</div>
+			<div class="p-item-info-more">
+				<div class="iim-wrapper clearfix">
+					<!--详情左边-->
+					<div class="info-detail">
+						<!--套餐-->
+						<div class="set-meal">
+							<div class="set-meal-title">
+								<span>速8酒店郑州火车站店其他热卖套餐</span>
+								<div class="more">
+									<span><a href="#">查看更多</a></span>
+									<i class="ico-more"></i>
+								</div>
+							</div>
+							<div class="sg-wrapper">
+								<ul class="sg-list">
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									
+								</ul>
+								<ul class="hidden-ul" style="display:none;">
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#">
+											<span class="sg-col sg-price">￥158</span>
+											<span class="sg-col sg-discount">7.9折</span>
+											<span class="sg-col sg-title">速8酒店郑州火车站店标准双床房入住1晚</span>
+											<span class="sg-col sg-bought">151人团购</span>
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+						<div id="j-cellingRecent" class="clearfix">
+							<div class="j-cellingRecent-title">
+								<span>买了又买</span>
+								<div class="j-cellingRecent-title-r">
+									<span>换一换</span>
+									<i class="j-cellingRecent-ico"></i>
+								</div>
+							</div>
+							<div class="buy2buy-item">
+								<div class="buy2buy-item-f">
+									<foreach name="mlmgood" item="mlm">
+										<a href="__CONTROLLER__/index/id/{$mlm.id}.html" class="first">
+											<img src="__PUBLIC__/{$mlm.img}"/>
+											<span class="title">{$mlm.name}</span>
+											<div class="price-sold clearfix">
+												<div class="price">
+													<span class="current">¥{$mlm.price}</span>
+												</div>
+												<div class="sold">
+													<span class="name">已售</span>
+													<span class="current">93</span>
+												</div>
+											</div>
+										</a>
+								    </foreach>
+									
+								</div>				
+							</div>
+							<div class="grade">
+								<div class="grade-title">
+									<span>会员评分</span>
+									<div class="grade-title-r">
+										<span>查看全部评论</span>
+										<i class="grade-ico"></i>
+									</div>
+								</div>
+								<div class="grade-content clearfix">
+									<div class="score fl">4.6</div>
+									<div class="score-star fl">
+										<div class="star ugc-star-wrap ">
+											<div class="star ugc-star-grade"> </div>
+										</div>
+									</div>
+									<div class="text fl">
+										共有3977人评价，满意率
+										<span>96.31%</span>
+									</div>
+								</div>
+							</div>
+							<div class="detail-menu">
+								<ul class="detail-ul">
+									<li class="detail-ul-li" style="color:#fff;">
+										<a href="#detail">本单详情</a>
+									</li>
+									<li>
+										<a href="#prompt">消费提示</a>
+									</li>
+									<li>
+										<a href="#introduce">商家介绍</a>
+									</li>
+									<li>
+										<a href="#member">会员评价</a>
+									</li>
+								</ul>
+								<div class="hidden-menu">
+									<div class="cb-price">
+										<span>￥</span>
+										49
+									</div>
+									<a href="#">
+										立即抢购
+									</a>
+								</div>
+							</div>
+							<div class="annex-info" >
+								<span class="annex-info-title">分店信息</span>
+								<div class="annex-info-content">
+									<div class="annex-info-map">
+										<img src="__PUBLIC__/home/images/map.jpg"/>
+									</div>
+									<div class="annex-screen">
+										<!--筛选-->
+										<div class="j-area-filter">
+											<div class="w-area-filter">
+												<label>筛选:</label>
+												<select id="j-af-1" class="af-content" name="city">
+													<option selected="" value="2000010000">郑州市</option>
+												</select>
+												<select id="j-af-2" class="af-content" name="district">
+													<option selected="">全部城区</option>
+													<option value="6707">新郑市</option>
+												</select>
+											</div>
+										</div>
+										<!--筛选信息-->
+										<div class="branch-list-content">
+											<ul>
+												<li>
+													<a href="#">速8酒店火车站分店</a>
+													<p>郑州火车站大同路与福寿街交叉口向北50米 紧邻火车站</p>
+													<p>0371-65078888</p>
+													<div class="brandch-ico">
+														<div class="brandch-ico-map">
+															<i class="map-ico"></i>
+															<span>查询地图</span>
+														</div>
+														<div class="brandch-ico-buy">
+															<i class="buy-ico"></i>
+															<span>公交/驾车去这里</span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							
+							<div class="clearfix"></div>
+							<!--内容套餐-->
+							<div class="w-rich-text">
+								<div class="w-rich-text-title">
+									<span><a name="detail">套餐内容</a></span>
+								</div>
+								<div class="w-rich-text-content">
+									<p>
+										适用门店：
+										郑州好如家酒店杜岭街店
+										预约电话: -0371-66205888
+										地址:杜岭街153号
+
+										房型信息：
+										大床房
+										• 1 张床(2*1.8)
+										• 有窗
+										标准间
+										• 2 张床(2*1.2)
+										• 有窗
+
+										入住提示:
+										• 当日6点后入住，需次日12点前退房。
+										• 以酒店收费标准为主
+
+										购买须知:
+										• 需提前至少1 天 致电商家预约。
+										• 需携带有效证件（除驾驶证）办理入住。
+										• 入住需缴纳100元押金。
+										• 不可加床。
+										• 使用多张券可连续入住。
+										• 损坏房间内的物品，需照价赔偿。
+										• 不能同时享受酒店其他优惠。
+										• 请不要携带宠物入住 。
+										• 加价信息：
+										–加价信息请咨询商家。
+
+										如需发票，请咨询商家。
+
+										此产品由去哪儿网提供。
+										
+										
+									</p>
+								</div>
+							</div>
+							<div class="w-rich-text">
+								<div class="w-rich-text-title">
+									<span><a name="prompt">消费提示</a></span>
+								</div>
+								<div class="w-rich-text-content">
+									<p>
+										1、请携带有效证件办理入住登记；
+										2、驾驶证不是有效证件；
+										3、每位入住的客人都需要登记；
+										4、如不小心损坏房间内的物品，需照价赔偿；
+										*本团单由【去哪儿】提供，请联系商户时说明
+										
+									</p>
+								</div>
+							</div>
+							<div class="w-rich-text">
+								<div class="w-rich-text-title">
+									<span><a name="introduce">团购详情</a></span>
+								</div>
+								<div class="w-rich-text-content">
+									<img src="__PUBLIC__/home/images/bed.jpg"/>
+								</div>
+							</div>
+							<!--评价部分-->
+							<div style="height:125px;border-bottom:1px solid #ccc;">
+								<div class="evaluate clearfix">
+									<!--4.3星星-->
+									<div class="score">
+										<div class="score-top">
+											<div class="score-num">
+												4.3
+											</div>
+											<div class="list clearfix">
+												<div class="list-star-bj">
+													
+												</div>
+											</div>
+										</div>
+										<div class="score-bottom">
+											此团单共67人评论
+										</div>
+									</div>
+									<!--好中差评-->
+									<div class="comment-level">
+										<div class="comment-level-co">
+											<!--好评-->
+											<div class="good-reputation">
+												<span class="g-reputation">好评</span>
+												<span class="g-line"></span>
+												<span class="g-num">54条</span>
+											</div>
+											<!--中评-->
+											<div class="good-reputation">
+												<span class="g-reputation">中评</span>
+												<span class="g-line"></span>
+												<span class="g-num">54条</span>
+											</div>
+											<!--差评-->
+											<div class="good-reputation">
+												<span class="g-reputation">差评</span>
+												<span class="g-line"></span>
+												<span class="g-num">54条</span>
+											</div>
+										</div>
+									</div>
+									<!--我要评价-->
+									<div class="status">
+										<div class="status-buy">
+											我在百度糯米买过此单
+										</div>
+										<a href="#">我要评价</a>
+									</div>
+								</div>
+							</div>
+							<!--大家都在说-->
+							<div class="say clearfix">
+								<div class="say-title">
+									<span>大家都在说</span>
+								</div>
+								<div class="say-content clearfix fl">
+									<a href="#">房间条件不错（5）</a>
+									<a href="#">酒店环境不错（5）</a>
+									<a href="#">酒店服务周到（5）</a>
+									<a href="#">房间条件还行（5）</a>
+									<a href="#">服务态度良好（5）</a>
+									<a href="#">酒店环境还行（5）</a>
+								</div>
+							</div>
+							<!--评价-->
+							
+							<div class="valuation">
+								<div class="valuation-title">
+									<span><a name="member">全部评论</a></span>
+								</div>
+							<div class="ajax_box">
+								<div class="valuation-content">
+									<ul>
+								    <foreach name="info" item="vol">
+                                    
+			                          <div class="photo">
+			                         	<img src="__PUBLIC__/Uploads/user/{$vol.image}?id/{:rand()}"/>
+				                        <span>{$vol.username}</span>
+			                          </div>
+			                          <foreach name="vol['comt']" item="vos">
+									        <div class="time">
+												<if condition='$vos["stute"] eq 1'>追评：
+											    </if>
+												{:date('Y-m-d H:i:s',$vos['comtime'])} 说：
+											<div class="publish-star">
+
+												<div id="pub-star" class="pub-star">
+													<!-- {} -->
+													<if condition="$vos['goodpoint'] eq 1">
+													 	<div style="width:14px" class="light-star"></div>
+													 <elseif condition="$vos['goodpoint'] eq 2"/>
+													 	<div style="width:28px" class="light-star"></div> 
+													 <elseif condition="$vos['goodpoint'] eq 3"/>
+													 	<div style="width:42px" class="light-star"></div>
+													  <elseif condition="$vos['goodpoint'] eq 4"/>
+													  	<div style="width:56px" class="light-star"></div> 
+													  <elseif condition="$vos['goodpoint'] eq 5"/>
+													  	<div style="width:70px" class="light-star"></div>
+													  </if>
+												</div>
+											</div>
+										    </div>
+				                            <li>
+				                            	{$vos['content']}
+				                            </li>
+		                           </foreach>
+		                        </foreach>
+
+									</ul>
+								</div>
+								<!--分页-->
+								
+								<div class="uipage" style="height:25px;margin-top:5px;text-align:right">
+										{$page}
+								</div>
+						</div>
+								<div class="bottom-buy">
+									<div class="bottom-buy-cont">
+										<ul class="bb-info-list clearfix">
+											<li class="info-price">
+												<span>￥</span>
+												108
+											</li>
+											<li class="info-ori">
+												<span>价值</span>
+												<del>238</del>
+											</li>
+											<li class="info-discount">
+												<span>折扣</span>
+												<span>4.5折</span>
+											</li>
+											<li class="info-saving">
+												<span>节省</span>
+												<span>￥130</span>
+											</li>
+										</ul>
+										<a href="#">立即购买</a>
+									</div>
+								</div>
+								<div class="scan-history">
+									<div class="scan-history-title">
+										<span>
+											根据您浏览历史的相关推荐
+										</span>
+										<div class="more">
+											<span><a href="#">换一换</a></span>
+											<i class="ico-more"></i>
+										</div>
+									</div>
+									<div class="scan-history-content clearfix">
+										<a href="#" class="first">
+											<img src="__PUBLIC__/home/images/buy2buy-item-f.jpg"/>
+											<span class="title">速8酒店郑州火车站店</span>
+											<div class="price-sold clearfix">
+												<div class="price">
+													<span class="current">¥48</span>
+												</div>
+												<div class="sold">
+													<span class="name">已售</span>
+													<span class="current">93</span>
+												</div>
+											</div>
+										</a>
+										<a href="#" class="first">
+											<img src="__PUBLIC__/home/images/buy2buy-item-f.jpg"/>
+											<span class="title">速8酒店郑州火车站店</span>
+											<div class="price-sold clearfix">
+												<div class="price">
+													<span class="current">¥48</span>
+												</div>
+												<div class="sold">
+													<span class="name">已售</span>
+													<span class="current">93</span>
+												</div>
+											</div>
+										</a>
+										<a href="#" class="first">
+											<img src="__PUBLIC__/home/images/buy2buy-item-f.jpg"/>
+											<span class="title">速8酒店郑州火车站店</span>
+											<div class="price-sold clearfix">
+												<div class="price">
+													<span class="current">¥48</span>
+												</div>
+												<div class="sold">
+													<span class="name">已售</span>
+													<span class="current">93</span>
+												</div>
+											</div>
+										</a>
+										<a href="#" class="first">
+											<img src="__PUBLIC__/home/images/buy2buy-item-f.jpg"/>
+											<span class="title">速8酒店郑州火车站店</span>
+											<div class="price-sold clearfix">
+												<div class="price">
+													<span class="current">¥48</span>
+												</div>
+												<div class="sold">
+													<span class="name">已售</span>
+													<span class="current">93</span>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="soon-scan">
+										<div class="soon-scan-title">
+											<span>最近浏览历史</span>
+										</div>
+										<div class="soon-scan-content">
+											<div class="goods-item-recent-view">
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												<a href="#">
+													<img src="__PUBLIC__/home/images/soon-scan-img.jpg"/>
+													<span>￥42</span>
+												</a>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						</div>
+						
+					</div>
+					
+				
+					
+					<!--详情右边看了又看-->
+					<div class="recommend-area clearfix">
+						<div class="recommend-area-title clearfix">
+							<span>看了又看</span>
+							<div class="recommend-area-title-r">
+								<span>换一换</span>
+								<i class="circle"></i>
+							</div>
+						</div>
+					
+						<div class="recommend-area-content clearfix">
+							<ul class="recommend-area-content-block clearfix">
+							<foreach name="klkgood" item="klk">
+								<li class="clearfix">
+									<a href="__CONTROLLER__/index/id/{$mlm.id}.html">
+										<div class="content-img clearfix">
+											<img src="__PUBLIC__/{$klk.img}"/>
+										</div>
+										<div class="content-writing">
+											<span class="hotel-title">
+												{$klk.name}
+											</span>
+											<div class="hotel-price">
+												<span>￥{$klk.price}</span>
+												<del>￥{$klk.oldprice}</del>
+											</div>
+										</div>
+									</a>
+								</li>
+							</foreach>
+							</ul>
+							<ul class="recommend-area-content-none">
+								
+							</ul>
+						</div>
+					
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="__PUBLIC__/home/js/detail.js"></script>
+		<script type="text/javascript">
+			function sub(){
+				$('#form').submit();
+			}
+
+			$('.pagination').addClass('Yahoo');
+			$('.pagination li').css('float','left');
+
+			$('.pagination li>a').live('click',function(){
+				var href = $(this).attr('href');
+				$(this).attr('href','javascript:');
+				 $.get(href,function(data){
+					$('.ajax_box').html(data); 
+				 })
+			})
+
+		</script>
+
+</block>

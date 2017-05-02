@@ -1,0 +1,181 @@
+<extend name="Public:Layout/index"/>
+<block name="main">
+     <div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+
+							<li>
+								<a href="#">网站配置</a>
+							</li>
+							<li class="active">网站信息</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="搜索" name="name" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<input type="submit" class="btn btn-primary btn-xs" value="搜索" style="border-radius:3px; height:28px; margin-top:-4px; padding-right:24px;">
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								网站配置
+								<small>
+									<i class="icon-double-angle-right"></i>
+									网站信息
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-responsive">
+											<form action="__CONTROLLER__/del" method="post">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover" style="text-align:center;">
+												<thead>
+													<tr>
+														
+														
+														<th class="center">网站名称</th>
+														<th class="center">网站关键字</th>
+														<th class="center" class="hidden-480">网站描述</th>
+														<th class="center" class="hidden-480">网站状态</th>
+														<th class="center" class="hidden-480">网站版权</th>
+														<th class="center" class="hidden-480">ICP备案号</th>
+														<th class="center" class="hidden-480">logo</th>
+														<th class="center" class="hidden-480">操作</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														
+														
+														<td>{$config.title}</td>
+														<td>{$config.words}</td>
+														<td>{$config.description}</td>
+														<td>{$config['status']=='1'?'开启':'关闭'}</td>
+														<td>{$config.copyright}</td>
+														<td>{$config.icp}</td>
+														<td>
+															<img src="__PUBLIC__/{$config.logo}jpg" style="width:100px;height:30px;"/>
+														</td>
+														<td>
+															<a href="__CONTROLLER__/mod/id/{$config.id}.html" class="btn btn-xs  btn-info">
+																	 修改
+																</a>
+																<a href="__CONTROLLER__/del/id/{$config.id}.html" class="btn btn-xs  btn-danger">
+																	删除
+																</a>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="10">{$page}</td>
+													</tr>
+												</tbody>
+											</table>
+											 <input type="submit" name="sub" value="全部删除">
+											</form>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+
+								
+
+								<div id="modal-table" class="modal fade" tabindex="-1">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header no-padding">
+												<div class="table-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+														<span class="white">&times;</span>
+													</button>
+													Results for "Latest Registered Domains
+												</div>
+											</div>
+
+											<div class="modal-body no-padding">
+												<table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
+													<thead>
+														<tr>
+															<th>Domain</th>
+															<th>Price</th>
+															<th>Clicks</th>
+
+															<th>
+																<i class="icon-time bigger-110"></i>
+																Update
+															</th>
+														</tr>
+													</thead>
+
+													<tbody>
+														<tr>
+															<td>
+																<a href="#">pro.com</a>
+															</td>
+															<td>$55</td>
+															<td>4,250</td>
+															<td>Jan 21</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+											<div class="modal-footer no-margin-top">
+												<button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+													<i class="icon-remove"></i>
+													Close
+												</button>
+
+												<ul class="pagination pull-right no-margin">
+													<li class="prev disabled">
+														<a href="#">
+															<i class="icon-double-angle-left"></i>
+														</a>
+													</li>
+
+													<li class="active">
+														<a href="#">1</a>
+													</li>
+
+													<li>
+														<a href="#">2</a>
+													</li>
+
+													<li>
+														<a href="#">3</a>
+													</li>
+
+													<li class="next">
+														<a href="#">
+															<i class="icon-double-angle-right"></i>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div><!-- /.modal-content -->
+									</div><!-- /.modal-dialog -->
+								</div><!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+ </div>
+</block>

@@ -1,0 +1,319 @@
+<extend name="Public:Layout/index"/>
+<block name='main'>
+   <style type="text/css">
+        .miss_order input {width:40px;height:1.5em;vertical-align: middle;}
+   </style>
+   <script type="text/javascript">
+         function miss_comfirm() {
+            if(confirm("确定要删除该分类吗？删除将不能恢复！"))
+                return true;
+            else
+                return false;
+        }
+   </script>
+    <div class="main-content">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <script type="text/javascript">
+                            try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                        </script>
+                        <script src="__PUBLIC__/admin/assets/js/jquery-2.0.3.min.js"></script>
+
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home home-icon"></i>
+                                <a href="#">主页</a>
+                            </li>
+
+                            <li>
+                                <a href="#">分类管理</a>
+                            </li>
+                            <li class="active">查看分类</li>
+                            
+                        </ul><!-- .breadcrumb -->
+                        
+                        <div class="nav-search" id="nav-search">
+                            <form class="form-search">
+                                <span class="input-icon">
+                                    <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                                    <i class="icon-search nav-search-icon"></i>
+                                </span>
+                            </form>
+                        </div><!-- #nav-search -->
+                    </div>
+                    <a href="__CONTROLLER__/add.html" style="margin: 10px 50px;" class="btn btn-app btn-success btn-xs">
+                                <i class="icon-plus bigger-160"></i>
+                                新增
+                            </a>
+                            <span id="miss_remind" style="margin-left: 200px;"></span>
+                    <div class="page-content">
+                        <!-- /.page-header
+ -->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- PAGE CONTENT BEGINS -->
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="table-responsive">
+                                            <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="center">
+                                                            排序
+                                                        </th>
+                                                        <th>分类ID</th>
+                                                        <th class="hidden-480">状态</th>
+                                                        <th>分类树</th>
+                                                            
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <foreach name="cateTree" item="tree">
+                                                    <tr id="{$tree['id']}">
+                                                        <td class="center miss_order">
+                                                            <input type="text" value="{$tree['path']}" class="ace" />
+                                                            <span class="lbl"></span>
+                                                        </td>
+
+                                                        <td>
+                                                            {$tree["id"]}
+                                                        </td>
+
+                                                        <td data="{$tree['id']}" class="hidden-480">
+                                                        {$tree['status'] ? '展示' : '隐藏'}
+                                                        </td>
+
+                                                        <td>
+                                                            <input class="treeName" value="{$tree['name']}"/>
+                                                        </td>
+
+                                                        <td>
+
+                                                            <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                                        
+                                                                        <button data="{$tree['id']}" class="btn btn-xs btn-success permitButton">启用</button>
+                                                                        <button data="{$tree['id']}" class="btn btn-xs btn-warning forbButton">禁用</button>
+                                                                        <a href="__CONTROLLER__/del/id/{$tree['id']}" onclick= "if(confirm('是否确定？')==false) return false;"  class="btn btn-xs btn-danger">
+                                                                            删除
+                                                                        </a>
+                                                            </div>
+
+                                                            <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                                <div class="inline position-relative">
+                                                                    <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                        <i class="icon-cog icon-only bigger-110"></i>
+                                                                    </button>
+
+                                                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                        <li>
+                                                                            <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                                <span class="blue">
+                                                                                    <i class="icon-zoom-in bigger-120"></i>
+                                                                                </span>
+                                                                            </a>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                                <span class="green">
+                                                                                    <i class="icon-edit bigger-120"></i>
+                                                                                </span>
+                                                                            </a>
+                                                                        </li>
+
+                                                                        <li>
+                                                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                                <span class="red">
+                                                                                    <i class="icon-trash bigger-120"></i>
+                                                                                </span>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                        <foreach name="tree['child']" item="child_tree">
+                                                            <tr id="{$child_tree['id']}">
+                                                                <td class="center miss_order">
+                                                                    <label>
+                                                                        <input type="text" value="{$child_tree['path']}" class="ace" />
+                                                                        <span class="lbl"></span>
+                                                                    </label>
+                                                                </td>
+
+                                                                <td>
+                                                                    {$child_tree["id"]}
+                                                                </td>
+
+                                                                <td data="{$child_tree['id']}" class="hidden-480">
+                                                                {$child_tree['status'] ? '展示' : '隐藏'}
+                                                                </td>
+
+                                                                <td>
+                                                                    <img src="__PUBLIC__/admin/assets/images/tree_1.png">
+                                                                    <input class="treeName" value="{$child_tree['name']}"/>
+                                                                </td>
+
+                                                                <td>
+
+                                                                    <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                                        <button data="{$child_tree['id']}" class="btn btn-xs btn-success permitButton">启用</button>
+                                                                        <button data="{$child_tree['id']}" class="btn btn-xs btn-warning forbButton">禁用</button>
+                                                                        <a href="__CONTROLLER__/del/id/{$child_tree['id']}" onclick= "if(confirm('是否确定？')==false) return false;"  class="btn btn-xs btn-danger">删除</a>
+                                                                    </div>
+
+                                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                                        <div class="inline position-relative">
+                                                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                                                                                <i class="icon-cog icon-only bigger-110"></i>
+                                                                            </button>
+
+                                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                                <li>
+                                                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                                        <span class="blue">
+                                                                                            <i class="icon-zoom-in bigger-120"></i>
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li>
+                                                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                                        <span class="green">
+                                                                                            <i class="icon-edit bigger-120"></i>
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </li>
+
+                                                                                <li>
+                                                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                                        <span class="red">
+                                                                                            <i class="icon-trash bigger-120"></i>
+                                                                                        </span>
+                                                                                    </a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <foreach name="child_tree['child']" item="grandchild_tree">
+                                                                <tr id="{$grandchild_tree['id']}">
+                                                                    <td class="center miss_order">
+                                                                        <label>
+                                                                            <input type="text" value="{$grandchild_tree['path']}" class="ace" />
+                                                                            <span class="lbl"></span>
+                                                                        </label>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        {$grandchild_tree["id"]}
+                                                                    </td>
+
+                                                                    <td data="{$grandchild_tree['id']}" class="hidden-480">
+                                                                    {$grandchild_tree['status'] ? '展示' : '隐藏'}
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <img src="__PUBLIC__/admin/assets/images/tree_4.png">
+                                                                        <input class="treeName" value="{$grandchild_tree["name"]}"/>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                                                                            <button data="{$grandchild_tree['id']}" class="btn btn-xs btn-success permitButton">启用</button>
+                                                                            <button data="{$grandchild_tree['id']}" class="btn btn-xs btn-warning forbButton">禁用</button>
+                                                                            <a href="__CONTROLLER__/del/id/{$grandchild_tree['id']}" onclick= "return miss_comfirm();"  class="btn btn-xs btn-danger">删除</a>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </foreach>
+                                                        </foreach>
+                                                </foreach>
+                                                </tbody>
+                                            </table>
+                                        </div><!-- /.table-responsive -->
+                                    </div><!-- /span -->
+                                </div><!-- /row -->
+                               <!-- PAGE CONTENT ENDS -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.page-content -->
+                </div>
+        <script src="__PUBLIC__/admin/assets/js/jquery.dataTables.min.js"></script>
+        <script src="__PUBLIC__/admin/assets/js/jquery.dataTables.bootstrap.js"></script>
+        <script type="text/javascript">
+
+        $(".ace").blur(function(event) {
+            var categoryId = $(this).parents("tr").attr("id");
+            var pathValue = $(this).val();
+                $.ajax({
+                    url: '__CONTROLLER__/modify/',
+                    type: 'get',
+                    dataType: 'html',
+                    data: {"categoryId": categoryId,
+                            "pathValue": pathValue
+                    },
+                    success: function() {
+                        remind();
+                    }
+                })
+        });
+
+        $(".treeName").blur(function(event) {
+            var categoryId = $(this).parents("tr").attr("id");
+            var categoryName = $(this).val();
+             $.ajax({
+                    url: '__CONTROLLER__/modify/',
+                    type: 'get',
+                    dataType: 'html',
+                    data: {"categoryId": categoryId,
+                            "name": categoryName
+                    },
+                    success: function() {
+                        remind();
+                    }
+                })
+        });
+
+        $(".forbButton").click(function() {
+            var categoryId = $(this).attr("data");
+            $.ajax({
+                url: '__CONTROLLER__/forb/',
+                data: {"categoryId": categoryId},
+                type: 'get',
+                dataType: 'html',
+                success: function() {
+                    remind();
+                    $(".hidden-480[data=" + categoryId + "]").html("隐藏");
+                }
+            });
+        });
+
+        $(".permitButton").click(function() {
+            var categoryId = $(this).attr("data");
+            $.ajax({
+                url: '__CONTROLLER__/permit/',
+                data: {"categoryId": categoryId},
+                type: 'get',
+                dataType: 'html',
+                success: function() {
+                    remind();
+                    $(".hidden-480[data=" + categoryId + "]").html("展示");
+                }
+            });
+        });
+
+        function remind() {
+            $("#miss_remind").append("<button class=\"btn btn-lg btn-success\"><span class=\"bigger-110 no-text-shadow\">提交成功</span></button>");
+            var timer = setTimeout(function() {
+                $("#miss_remind").children().remove();
+            }, 2000)
+        }
+       
+        </script>
+
+</block>

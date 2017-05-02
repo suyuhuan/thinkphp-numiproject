@@ -1,0 +1,108 @@
+<extend name="Public:Layout/index"/>
+<block name="css">
+	<style>
+
+#searchmain{ font-size:12px;}
+#search{ font-size:12px; background:#548fc9; margin:10px 10px 0 0; display:inline; width:100%; color:#FFF; float:left}
+#search form span{height:40px; line-height:40px; padding:0 0px 0 10px; float:left;}
+#search form input.text-word{height:24px; line-height:24px; width:180px; margin:8px 0 6px 0; padding:0 0px 0 10px; float:left; border:1px solid #FFF;}
+#search form input.text-but{height:24px; line-height:24px; width:55px; background:url(__PUBLIC__/Admin/images/main/list_input.jpg) no-repeat left top; border:none; cursor:pointer; font-family:"Microsoft YaHei","Tahoma","Arial",'宋体'; color:#666; float:left; margin:8px 0 0 6px; display:inline;}
+#search a.add{ background:url(__PUBLIC__/Admin/images/main/add.jpg) no-repeat -3px 7px #548fc9; padding:0 10px 0 26px; height:40px; line-height:40px; font-size:14px; font-weight:bold; color:#FFF; float:right}
+#search a:hover.add{ text-decoration:underline; color:#d2e9ff;}
+#main-tab{ border:1px solid #eaeaea; background:#FFF; font-size:12px;}
+#main-tab th{ font-size:12px; background:url(__PUBLIC__/Admin/images/main/list_bg.jpg) repeat-x; height:32px; line-height:32px;}
+#main-tab td{ font-size:12px; line-height:40px;}
+#main-tab td a{ font-size:12px; color:#548fc9;}
+#main-tab td a:hover{color:#565656; text-decoration:underline;}
+.bordertop{ border-top:1px solid #ebebeb}
+.borderright{ border-right:1px solid #ebebeb;text-align:center;}
+.borderbottom{ border-bottom:1px solid #ebebeb}
+.borderleft{ border-left:1px solid #ebebeb}
+.gray{ color:#dbdbdb;}
+td.fenye{ padding:10px 0 0 0; text-align:right;}
+.bggray{ background:#f9f9f9}
+.searchbox{height:24px; line-height:24px; width:80px; margin:8px 10px 6px 10px;float:left; border:1px solid #FFF;
+}
+.searchradio{height:16px; line-height:16px; width:80px;text-align: center; font-size: 14px;float:right; 
+}
+.radio{height:16px; line-height:16px; width:30px;border:1px solid #FFF;margin-top:183px;float:right;
+}
+.span{height:24px; line-height:24px; width:80px; margin:8px 10px 6px 10px;border:1px solid #FFF;display:inline-block;float:right;
+}
+}
+th{}
+	</style>
+</block>
+<block name="main">
+
+
+<table width="85%" border="0" cellspacing="0" cellpadding="0" id="searchmain">
+  <tr>
+    <td width="99%" align="left" valign="top">您的位置：管理组列表</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="search">
+  		<tr>
+   		 <td width="90%" align="left" valign="middle">
+	         <form method="post" action="__MODULE__/Node/index" name='myform'>
+	         <span>管理组：</span>
+	         <input type="text" name="search" value="{$Think.post.search}" class="text-word">
+			<select  name="types"class="searchbox" >
+				<option value="all"selected="">&nbsp;全&nbsp;部</option>
+				<option value="id">&nbsp;&nbsp;ID号</option>
+				<option value="nname" >&nbsp;&nbsp;模块功能</option>
+				<option value="mname">&nbsp;&nbsp;模块名称</option>
+				<option value="aname">&nbsp;&nbsp;模块方法</option>
+				
+			</select>
+			
+			
+			 <script>
+				function myfunction()
+				{					
+					document.myform.submit();
+				}
+			 </script>
+
+	        <input name="" type="submit" value="查询" class="text-but">
+	         </form>
+         </td>
+  		  
+  		</tr>
+	</table>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" id="main-tab">
+      <tr>
+		<th align="center" valign="middle" class="borderright borderbottom"><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th align="center" valign="middle" class="borderright borderbottom">编号</th>
+        <th align="center" valign="middle" class="borderright borderbottom">组名称</th>
+        <th align="center" valign="middle" class="borderright borderbottom">组描述</th>
+        <th align="center" valign="middle" class="borderright borderbottom" >组状态</th>
+        <th align="center" valign="middle" style="text-align:center;" class="borderbottom">管理</th>
+      </tr>
+
+	<foreach name='groupLists' item='groupList'>
+		<tr onMouseOut="this.style.backgroundColor='#ffffff'" onMouseOver="this.style.backgroundColor='#edf5ff'">
+			<td align="center" valign="middle" class="borderright borderbottom"><input name="" type="checkbox" value=""/></td>
+			<td align="center" valign="middle" class="borderright borderbottom">{$groupList['id']}</td>
+			<td align="center" valign="middle" class="borderright borderbottom">{$groupList['title']}</td>
+			<td align="center" valign="middle" class="borderright borderbottom">{$groupList['describe']}</td>
+		
+			<td align="center" valign="middle" class="borderright borderbottom"><a href='__CONTROLLER__/status/id/{$groupList['id']}'>{$groupList['status']=='1'?'开启':'关闭'}</a></td>
+			<td align="center" valign="middle" class="borderbottom"><a href="__CONTROLLER__/edit/id/{$groupList['id']}" onFocus="this.blur()" class="add">编辑</a><span class="gray">&nbsp;|&nbsp;</span><a href="__CONTROLLER__/del/id/{$groupList['id']}" onFocus="this.blur()" class="add">删除</a></td>
+      </tr>
+	</foreach>
+    </table></td>
+    </tr>
+  <tr>
+	
+    <td align="left" valign="top" class="fenye">{$count}条数据&nbsp;&nbsp;共{$count/10|ceil}页&nbsp;&nbsp;<a href="__MODULE__/Node/index/p/1" target="mainFrame" onFocus="this.blur()">首页</a>&nbsp;&nbsp;{$str}&nbsp;&nbsp;<a href="__MODULE__/Node/index/p/{$count/10|ceil}" target="mainFrame" onFocus="this.blur()">尾页</a></td>
+  </tr>
+</table>
+
+</block>

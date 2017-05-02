@@ -1,0 +1,30 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class OrderController extends Controller {
+    public function index(){
+        
+        $order = M("order");
+        $count = $order -> count();
+        $Page = new\Think\Page($count,6);
+        $data = $order -> limit($Page -> firstRow.','.$Page -> listRows) -> select();
+        $this -> assign("page",$Page-> show());
+
+        $this -> assign("order",$data);
+        
+        $this->display();
+    }
+    public function Ordetail(){
+        $this->display();
+    }
+    //商品确认页面展示，获取用户信息
+     public function order(){}
+     //生产订单，同时消除购物车信息
+     public function creOrder(){}
+     //获取订单信息、展示评论页面
+     public function review(){}
+     //生产评论、修改订单状态
+     public function addComment(){}
+     //确认收货(AJAX)
+     public function affirm(){}
+}

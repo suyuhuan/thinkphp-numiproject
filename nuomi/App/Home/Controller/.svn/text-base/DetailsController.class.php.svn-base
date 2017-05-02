@@ -1,0 +1,28 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class DetailsController extends Controller {
+
+	//订单信息展示
+	public function index(){
+
+        $id = $_GET['id'];
+
+        
+
+        $good = M("goods");
+        $data = $good ->find($id); 
+        $cate_id = $data['cate_id'];//得到分类ID
+        $this -> assign("good",$data);
+
+        $cate = M("goods_category");
+        $cates = $cate ->find($cate_id);
+        $pid = $cates['pid'];
+        $this -> assign("cate",$cates);
+        $pid = $cate ->find($pid);
+        $this -> assign("pid",$pid);
+
+        $this->display();
+	}
+	
+}

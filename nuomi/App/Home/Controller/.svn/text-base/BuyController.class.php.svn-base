@@ -1,0 +1,33 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class BuyController extends Controller {
+
+	//订单信息展示
+	public function index(){
+		
+		$this->display();
+	}
+
+	//将订单信息 插入数据库
+	public function getorder(){
+
+		$_POST['order_num'] = substr(time(),2,8).rand(0,99999999);//生成随机订单号
+		$_POST['order_time'] = date("Y-m-d H:i:s");
+		$_POST['sumprice'] = $_POST['price'] * $_POST['number'];
+
+		$order = M("order");
+		if($order -> create()){
+			if($order -> add()){
+				
+			}else{
+				$this -> error("生成订单失败！");
+			}
+		}
+		$this -> display();
+	}
+
+	
+
+
+}
